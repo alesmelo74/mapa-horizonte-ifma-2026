@@ -60,21 +60,25 @@ body {
   padding-block: 38px 6px;
   text-align: center;
 }
-.intro__selo {
+/* O seletor precisa de duas classes para vencer `.intro p`, definida abaixo,
+   que sobrescrevia a cor do texto e derrubava o contraste do selo. */
+.intro .intro__selo {
   display: inline-flex;
   align-items: center;
   gap: 9px;
+  max-width: none;
   margin: 0 0 14px;
-  padding: 7px 16px;
+  padding: 8px 18px;
   background: var(--cor-tema, var(--azul-faixa));
   border-radius: 999px;
   color: #fff;
-  font-size: .74rem;
+  font-family: var(--fonte-titulo);
+  font-size: .76rem;
   font-weight: 600;
   letter-spacing: .09em;
   text-transform: uppercase;
 }
-.intro__selo .icone { width: 17px; height: 17px; }
+.intro .intro__selo .icone { width: 17px; height: 17px; color: #fff; }
 
 .intro h1 {
   margin: 0;
@@ -204,7 +208,7 @@ main { padding-bottom: 48px; }
   font-size: clamp(1.2rem, 4vw, 1.6rem);
   color: var(--navy);
 }
-.dia__data span { color: var(--item-2); }
+.dia__data span { color: var(--item-2-forte); }
 .dia__turno {
   font-size: .74rem;
   font-weight: 600;
@@ -313,7 +317,7 @@ main { padding-bottom: 48px; }
   font-family: var(--fonte-titulo);
   font-weight: 600;
   font-size: .88rem;
-  color: var(--item-2);
+  color: var(--item-2-forte);
 }
 
 /* Intervalos: faixa simples, sem cartão. */
@@ -332,7 +336,7 @@ main { padding-bottom: 48px; }
   text-transform: uppercase;
   color: var(--navy);
 }
-.intervalo .icone { width: 20px; height: 20px; color: var(--item-2); }
+.intervalo .icone { width: 20px; height: 20px; color: var(--item-2-forte); }
 
 /* ==========================================================================
    Item 2 — Restaurantes
@@ -362,7 +366,7 @@ main { padding-bottom: 48px; }
   place-items: center;
   width: 44px;
   height: 44px;
-  background: var(--item-2);
+  background: var(--item-2-forte);
   border-radius: 50%;
   font-family: var(--fonte-titulo);
   font-weight: 700;
@@ -382,7 +386,7 @@ main { padding-bottom: 48px; }
   margin: 2px 0 9px;
   font-size: .84rem;
   font-weight: 600;
-  color: var(--item-2);
+  color: var(--item-2-forte);
 }
 .local__dados {
   grid-column: 2;
@@ -403,14 +407,14 @@ main { padding-bottom: 48px; }
   width: 17px;
   height: 17px;
   margin-top: 3px;
-  color: var(--item-2);
+  color: var(--item-2-forte);
 }
 .local__dados a { color: var(--azul-faixa); font-weight: 600; text-decoration: none; }
 .local__dados a:hover { text-decoration: underline; }
 
 /* Cartão em destaque: o restaurante indicado. */
 .local--indicado {
-  border-color: var(--item-2);
+  border-color: var(--item-2-forte);
   background: #fffaf4;
   box-shadow: 0 4px 18px rgba(242, 92, 0, .18);
 }
@@ -419,7 +423,7 @@ main { padding-bottom: 48px; }
   justify-self: start;
   margin-top: 10px;
   padding: 6px 13px;
-  background: var(--item-2);
+  background: var(--item-2-forte);
   border-radius: 999px;
   font-size: .68rem;
   font-weight: 700;
@@ -532,7 +536,7 @@ main { padding-bottom: 48px; }
   padding: 11px;
   background: var(--cartao-alt);
   border-radius: 12px;
-  color: var(--item-4);
+  color: var(--item-4-forte);
   stroke-width: 1.6;
 }
 .atividade h2 {

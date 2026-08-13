@@ -15,6 +15,16 @@
   --item-3: #479633;
   --item-4: #007ece;
 
+  /* Variantes escurecidas das cores da marca, para uso com texto.
+     As originais são vivas demais: sobre branco, ou com texto branco por cima,
+     não alcançam a razão de contraste 4,5:1 exigida pela WCAG AA em texto
+     pequeno. Contraste com branco: 9,0:1 / 5,0:1 / 6,5:1 / 6,1:1. */
+  --item-1-forte: #00449e;
+  --item-2-forte: #c24700;
+  --item-3-forte: #2f6b23;
+  --item-4-forte: #00679f;
+  --trilha-gp-forte: #17699e;
+
   --trilha-gp: #1f8fd6;
   --trilha-di: #e2a412;
   --trilha-ti: #e2571f;
