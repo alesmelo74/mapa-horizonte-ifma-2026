@@ -3,25 +3,444 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Rota do Conhecimento — Programação Oficial | Horizonte IFMA 2026</title>
-<link rel="stylesheet" href="visualizador.css">
-</head>
-<body>
+<title>Programação Oficial — Horizonte IFMA 2026</title>
+<meta name="description" content="Programação oficial do Horizonte IFMA 2026, de 19 a 21 de agosto de 2026 no Campus Barreirinhas, organizada por horário e trilha temática.">
+<meta name="theme-color" content="#00102d">
 
-<header class="topo">
-  <a class="voltar" href="index.html">&#8592; Voltar ao menu principal</a>
-  <h1 class="titulo">1 &middot; Rota do Conhecimento &mdash; Programação Oficial</h1>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;600&family=Poppins:wght@600;700&display=swap">
+<link rel="stylesheet" href="base.css">
+<link rel="stylesheet" href="paginas.css">
+</head>
+<body style="--cor-tema: var(--item-1);">
+
+<svg class="sprite" aria-hidden="true" focusable="false">
+  <defs>
+    <symbol id="i-voltar" viewBox="0 0 24 24"><path d="M19 12H6M11.5 6l-6 6 6 6"/></symbol>
+    <symbol id="i-calendario" viewBox="0 0 24 24"><rect x="3" y="5" width="18" height="16" rx="2.5"/><path d="M8 3v4M16 3v4M3 10h18"/></symbol>
+    <symbol id="i-local" viewBox="0 0 24 24"><path d="M12 21s7-5.6 7-11a7 7 0 1 0-14 0c0 5.4 7 11 7 11z"/><circle cx="12" cy="10" r="2.6"/></symbol>
+    <symbol id="i-cafe" viewBox="0 0 24 24"><path d="M3 8h13v6a5 5 0 0 1-5 5H8a5 5 0 0 1-5-5zM16 9h2.5a2.5 2.5 0 0 1 0 5H16M4 22h13"/></symbol>
+    <symbol id="i-garfo" viewBox="0 0 24 24"><path d="M7 2v7a2.5 2.5 0 0 0 5 0V2M9.5 11.5V22M17 2c-1.6 1.4-2.4 3-2.4 5s.8 3.2 2.4 4v11"/></symbol>
+    <symbol id="i-info" viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><path d="M12 11v6M12 7.6h.01"/></symbol>
+  </defs>
+</svg>
+
+<header class="cabecalho">
+  <div class="limite">
+    <a class="marca" href="index.html">
+      <img class="marca__simbolo" src="logo-horizonte.png" alt="" width="176" height="218">
+      <span>
+        <span class="marca__nome">Horizonte <b>IFMA 2026</b></span>
+        <span class="marca__linha">O desenvolvimento institucional na era da inteligência artificial</span>
+      </span>
+    </a>
+    <div class="dados">
+      <div class="dado">
+        <svg class="icone" aria-hidden="true"><use href="#i-calendario"/></svg>
+        <span>
+          <span class="dado__forte">19 a 21</span>
+          <span class="dado__fraco">de agosto de 2026</span>
+        </span>
+      </div>
+      <div class="dado">
+        <svg class="icone" aria-hidden="true"><use href="#i-local"/></svg>
+        <span>
+          <span class="dado__forte">Campus <span>Barreirinhas</span></span>
+          <span class="dado__fraco">Barreirinhas - MA</span>
+        </span>
+      </div>
+    </div>
+  </div>
 </header>
 
-<main>
-  <iframe class="quadro-pdf"
-          src="1.Programacao_Horizonte_IFMA_2026.pptx.pdf"
-          title="Programação Oficial do Horizonte IFMA 2026"></iframe>
-  <p class="alternativa">
-    Se o PDF não aparecer acima,
-    <a href="1.Programacao_Horizonte_IFMA_2026.pptx.pdf" target="_blank" rel="noopener">abra em uma nova aba</a>.
-  </p>
+<nav class="barra" aria-label="Navegação da página">
+  <div class="limite">
+    <a class="voltar" href="index.html">
+      <svg class="icone" aria-hidden="true"><use href="#i-voltar"/></svg>
+      Voltar ao menu principal
+    </a>
+    <p class="barra__titulo">1 &middot; Rota do Conhecimento &mdash; <b>Programação</b></p>
+  </div>
+</nav>
+
+<main class="limite">
+
+  <div class="intro">
+    <p class="intro__selo">
+      <svg class="icone" aria-hidden="true"><use href="#i-calendario"/></svg>
+      Rota do Conhecimento
+    </p>
+    <h1>Programação <span>Oficial</span></h1>
+    <p>
+      Palestras, painéis, oficinas e momentos de troca para fortalecer o desenvolvimento
+      institucional, a inovação e a integração entre as áreas participantes.
+    </p>
+  </div>
+
+  <ul class="trilhas">
+    <li class="gp"><span></span>Gestão de Pessoas</li>
+    <li class="di"><span></span>Desenvolvimento Institucional</li>
+    <li class="ti"><span></span>Tecnologia da Informação</li>
+    <li class="sq"><span></span>Saúde e Qualidade de Vida</li>
+    <li class="geral"><span></span>Todos os participantes</li>
+  </ul>
+
+  <!-- ===================== DIA 1 ===================== -->
+  <section class="dia">
+    <div class="dia__cabeca">
+      <h2 class="dia__data">19.08 <span>quarta-feira</span></h2>
+      <p class="dia__turno">Dia 1 &middot; Tarde</p>
+    </div>
+
+    <div class="faixa-horario">
+      <p class="hora">14h00 <span>às 16h00</span></p>
+      <ul class="sessoes sessoes--unica">
+        <li class="sessao geral">
+          <span class="sessao__trilha">Todos os participantes</span>
+          <h3 class="sessao__titulo">Credenciamento e acolhimento das equipes</h3>
+        </li>
+      </ul>
+    </div>
+
+    <div class="faixa-horario">
+      <p class="hora">16h00 <span>às 18h00</span></p>
+      <ul class="sessoes">
+        <li class="sessao gp">
+          <span class="sessao__trilha">Gestão de Pessoas</span>
+          <h3 class="sessao__titulo">Mesa Redonda DIGEPE &mdash; tema livre</h3>
+          <p class="sessao__publico">Equipe de Gestão de Pessoas</p>
+        </li>
+        <li class="sessao sessao--vazia di">
+          <p>Agenda institucional</p>
+        </li>
+        <li class="sessao ti">
+          <span class="sessao__trilha">Tecnologia da Informação</span>
+          <h3 class="sessao__titulo">A ETIR no Instituto Federal: governança, formalização e resposta a incidentes cibernéticos</h3>
+          <p class="sessao__quem">Francisco de Assis Fialho Henriques</p>
+          <p class="sessao__publico">Equipe de TI</p>
+        </li>
+        <li class="sessao sq">
+          <span class="sessao__trilha">Saúde e Qualidade de Vida</span>
+          <h3 class="sessao__titulo">Estudo e discussão temática &mdash; Perícia médica: procedimentos institucionais</h3>
+          <p class="sessao__quem">Enf. Dâmaris Rebeca Soares da Silva Carvalho</p>
+          <p class="sessao__publico">Saúde e Qualidade de Vida</p>
+        </li>
+      </ul>
+    </div>
+
+    <div class="faixa-horario">
+      <p class="hora">18h00 <span>às 19h00</span></p>
+      <ul class="sessoes sessoes--unica">
+        <li class="sessao geral">
+          <span class="sessao__trilha">Abertura oficial &middot; Todos os participantes</span>
+          <h3 class="sessao__titulo">Palestra: O Horizonte Já Chegou &mdash; IA e o Futuro do Serviço Público</h3>
+          <p class="sessao__quem">Rodrigo Monteiro de Lima &mdash; Professor do IFMA, Campus Itapecuru</p>
+          <p class="sessao__extra">Coquetel de Abertura</p>
+        </li>
+      </ul>
+    </div>
+  </section>
+
+  <!-- ===================== DIA 2 ===================== -->
+  <section class="dia">
+    <div class="dia__cabeca">
+      <h2 class="dia__data">20.08 <span>quinta-feira</span></h2>
+      <p class="dia__turno">Dia 2 &middot; Manhã e tarde</p>
+    </div>
+
+    <div class="faixa-horario">
+      <p class="hora">08h00 <span>às 10h00</span></p>
+      <ul class="sessoes">
+        <li class="sessao gp">
+          <span class="sessao__trilha">Gestão de Pessoas</span>
+          <h3 class="sessao__titulo">Entre Processos e Pessoas</h3>
+          <p class="sessao__quem">Cristiane Lacerda &mdash; IFSP</p>
+          <p class="sessao__publico">Equipe de Gestão de Pessoas</p>
+        </li>
+        <li class="sessao ti">
+          <span class="sessao__trilha">Desenvolvimento Institucional e TI</span>
+          <h3 class="sessao__titulo">Panorama do Programa Conecta Rede e soluções disponíveis para o IFMA</h3>
+          <p class="sessao__quem">Roosevelt Oliveira &mdash; Gerente de Soluções da RNP</p>
+          <p class="sessao__publico">Equipe de TI, Diretores e Pró-Reitores</p>
+        </li>
+        <li class="sessao sq">
+          <span class="sessao__trilha">Saúde e Qualidade de Vida</span>
+          <h3 class="sessao__titulo">Oficina de Saúde, Segurança e Qualidade de Vida</h3>
+          <p class="sessao__quem">Prof. Seg. do Trabalho Fernando Tocantins Nunes</p>
+          <p class="sessao__publico">Equipe de Qualidade de Vida e Saúde do Servidor</p>
+        </li>
+      </ul>
+    </div>
+
+    <div class="faixa-horario">
+      <p class="hora">10h00 <span>às 10h30</span></p>
+      <p class="intervalo">
+        <svg class="icone" aria-hidden="true"><use href="#i-cafe"/></svg>
+        Coffee break
+      </p>
+    </div>
+
+    <div class="faixa-horario">
+      <p class="hora">10h30 <span>às 12h00</span></p>
+      <ul class="sessoes">
+        <li class="sessao gp">
+          <span class="sessao__trilha">Gestão de Pessoas</span>
+          <h3 class="sessao__titulo">Entregas DIGEPE, DCQ e TI: IQ e Aceleração por Capacitação, Cartilha de recepção de novos servidores, Situação Funcional e Gerador de Atos</h3>
+          <p class="sessao__publico">Equipe de Gestão de Pessoas</p>
+        </li>
+        <li class="sessao di">
+          <span class="sessao__trilha">Desenvolvimento Institucional</span>
+          <h3 class="sessao__titulo">Inteligência Artificial para Gestores: fundamentos, aplicações e produtividade no trabalho</h3>
+          <p class="sessao__quem">Assis Henriques</p>
+          <p class="sessao__publico">Dirigentes</p>
+        </li>
+        <li class="sessao ti">
+          <span class="sessao__trilha">Tecnologia da Informação</span>
+          <h3 class="sessao__titulo">Governança de Dados na Prática: como a inteligência de dados transforma a gestão da conectividade</h3>
+          <p class="sessao__quem">João Souza &mdash; Coordenador da Gerência de Atendimento Integrado da RNP</p>
+          <p class="sessao__publico">Equipe de TI</p>
+        </li>
+        <li class="sessao sq">
+          <span class="sessao__trilha">Saúde e Qualidade de Vida</span>
+          <h3 class="sessao__titulo">Cuidar de quem cuida</h3>
+          <p class="sessao__quem">Cristiane Lacerda &mdash; IFSP</p>
+          <p class="sessao__publico">Equipe de Qualidade de Vida e Saúde do Servidor</p>
+        </li>
+      </ul>
+    </div>
+
+    <div class="faixa-horario">
+      <p class="hora">12h00 <span>às 14h00</span></p>
+      <p class="intervalo">
+        <svg class="icone" aria-hidden="true"><use href="#i-garfo"/></svg>
+        Intervalo para almoço
+      </p>
+    </div>
+
+    <div class="faixa-horario">
+      <p class="hora">14h00 <span>às 16h00</span></p>
+      <ul class="sessoes">
+        <li class="sessao gp">
+          <span class="sessao__trilha">Gestão de Pessoas</span>
+          <h3 class="sessao__titulo">Aposentadoria e Pensão</h3>
+          <p class="sessao__quem">Luzinete e Rondnelle</p>
+          <p class="sessao__publico">Equipe de Gestão de Pessoas</p>
+        </li>
+        <li class="sessao di">
+          <span class="sessao__trilha">Desenvolvimento Institucional</span>
+          <h3 class="sessao__titulo">PAA: Plano de Ação Anual</h3>
+          <p class="sessao__quem">Clarisse Medeiros</p>
+          <p class="sessao__publico">Dirigentes</p>
+        </li>
+        <li class="sessao ti">
+          <span class="sessao__trilha">Tecnologia da Informação</span>
+          <h3 class="sessao__titulo">Cyber Resilience na Era da IA &mdash; da prevenção à sala de crise: como a IA transforma ataques e defesa e como preparar a organização para o próximo ransomware</h3>
+          <p class="sessao__quem">Henrique Oliveira &mdash; Sr. Systems Engineer da Fortinet</p>
+          <p class="sessao__publico">Equipe de TI</p>
+        </li>
+        <li class="sessao sq">
+          <span class="sessao__trilha">Saúde e Qualidade de Vida</span>
+          <h3 class="sessao__titulo">A Política de Saúde e Segurança no Trabalho no Serviço Público Federal: desafios, avanços e perspectivas para a valorização do servidor</h3>
+          <p class="sessao__quem">Psic. Nathália Senger Medeiros e Assist. Soc. Aline Paes</p>
+          <p class="sessao__publico">Saúde e Qualidade de Vida</p>
+        </li>
+      </ul>
+    </div>
+
+    <div class="faixa-horario">
+      <p class="hora">16h00 <span>às 16h30</span></p>
+      <p class="intervalo">
+        <svg class="icone" aria-hidden="true"><use href="#i-cafe"/></svg>
+        Coffee break
+      </p>
+    </div>
+
+    <div class="faixa-horario">
+      <p class="hora">16h30 <span>às 18h00</span></p>
+      <ul class="sessoes">
+        <li class="sessao gp">
+          <span class="sessao__trilha">Gestão de Pessoas</span>
+          <h3 class="sessao__titulo">Alinhamento sobre RSC</h3>
+          <p class="sessao__quem">Valdomir e Andreia (CIS)</p>
+          <p class="sessao__publico">Equipe de Gestão de Pessoas</p>
+        </li>
+        <li class="sessao sessao--vazia di">
+          <p>Sem atividade</p>
+        </li>
+        <li class="sessao ti">
+          <span class="sessao__trilha">Tecnologia da Informação</span>
+          <h3 class="sessao__titulo">Conexões Humanas em tempos Artificiais</h3>
+          <p class="sessao__quem">Cristiane Lacerda &mdash; Professora IFSP</p>
+          <p class="sessao__publico">Equipe de TI</p>
+        </li>
+        <li class="sessao sq">
+          <span class="sessao__trilha">Saúde e Qualidade de Vida</span>
+          <h3 class="sessao__titulo">Mesa Redonda: olhar multiprofissional para a compreensão da saúde do servidor</h3>
+          <p class="sessao__quem">Participantes: IFSP &middot; IFF &middot; IFMA</p>
+          <p class="sessao__publico">Saúde e Qualidade de Vida</p>
+        </li>
+      </ul>
+    </div>
+  </section>
+
+  <!-- ===================== DIA 3 ===================== -->
+  <section class="dia">
+    <div class="dia__cabeca">
+      <h2 class="dia__data">21.08 <span>sexta-feira</span></h2>
+      <p class="dia__turno">Dia 3 &middot; Manhã e tarde</p>
+    </div>
+
+    <div class="faixa-horario">
+      <p class="hora">08h00 <span>às 10h00</span></p>
+      <ul class="sessoes">
+        <li class="sessao gp">
+          <span class="sessao__trilha">Gestão de Pessoas</span>
+          <h3 class="sessao__titulo">Avalia Gov &mdash; Estágio Probatório</h3>
+          <p class="sessao__quem">Valdomir e Valdir Mariano</p>
+          <p class="sessao__publico">Equipe de Gestão de Pessoas</p>
+        </li>
+        <li class="sessao di">
+          <span class="sessao__trilha">Desenvolvimento Institucional</span>
+          <h3 class="sessao__titulo">GenAI na Gestão Pública: da Ideação à Aplicação</h3>
+          <p class="sessao__quem">Anderson Miranda &mdash; UFMA</p>
+          <p class="sessao__publico">Dirigentes do IFMA</p>
+        </li>
+        <li class="sessao ti">
+          <span class="sessao__trilha">Tecnologia da Informação</span>
+          <h3 class="sessao__titulo">Nuvem no setor público: da modernização à governança de agentes de IA</h3>
+          <p class="sessao__quem">DNX</p>
+          <p class="sessao__publico">Equipe de TI</p>
+        </li>
+        <li class="sessao sq">
+          <span class="sessao__trilha">Saúde e Qualidade de Vida</span>
+          <h3 class="sessao__titulo">Contribuições do SIASS para o Serviço Público: a experiência da Unidade SIASS do IFFluminense</h3>
+          <p class="sessao__quem">Méd. Rodrigo Aires Moraes</p>
+          <p class="sessao__publico">Saúde e Qualidade de Vida</p>
+        </li>
+      </ul>
+    </div>
+
+    <div class="faixa-horario">
+      <p class="hora">10h00 <span>às 10h30</span></p>
+      <p class="intervalo">
+        <svg class="icone" aria-hidden="true"><use href="#i-cafe"/></svg>
+        Coffee break
+      </p>
+    </div>
+
+    <div class="faixa-horario">
+      <p class="hora">10h30 <span>às 12h00</span></p>
+      <ul class="sessoes">
+        <li class="sessao gp">
+          <span class="sessao__trilha">Gestão de Pessoas</span>
+          <h3 class="sessao__titulo">Processos judiciais e notificação</h3>
+          <p class="sessao__quem">Luzinete Camara</p>
+          <p class="sessao__publico">Equipe de Gestão de Pessoas</p>
+        </li>
+        <li class="sessao di">
+          <span class="sessao__trilha">Desenvolvimento Institucional</span>
+          <h3 class="sessao__titulo">Liderança Consciente</h3>
+          <p class="sessao__quem">Cristiane Lacerda &mdash; IFSP</p>
+          <p class="sessao__publico">Dirigentes do IFMA</p>
+        </li>
+        <li class="sessao ti">
+          <span class="sessao__trilha">Tecnologia da Informação</span>
+          <h3 class="sessao__titulo">Aquisição de bens e serviços de TI por meio de Ata de Registro de Preços, com apoio da Inteligência Artificial</h3>
+          <p class="sessao__quem">Kristiano Fernandes Plácido</p>
+          <p class="sessao__publico">Equipe de TI</p>
+        </li>
+        <li class="sessao ti">
+          <span class="sessao__trilha">Tecnologia da Informação</span>
+          <h3 class="sessao__titulo">O Futuro do SUAP com IA: possibilidades e limites</h3>
+          <p class="sessao__quem">Daniel Soares Lopes Lima</p>
+          <p class="sessao__publico">Equipe de TI</p>
+        </li>
+        <li class="sessao sq">
+          <span class="sessao__trilha">Saúde e Qualidade de Vida</span>
+          <h3 class="sessao__titulo">A avaliação biopsicossocial da pessoa com deficiência</h3>
+          <p class="sessao__quem">Psic. Nathália &middot; Assist. Soc. Aline Paes &middot; Méd. Rodrigo Aires</p>
+          <p class="sessao__publico">Saúde e Qualidade de Vida</p>
+        </li>
+      </ul>
+    </div>
+
+    <div class="faixa-horario">
+      <p class="hora">12h00 <span>às 14h00</span></p>
+      <p class="intervalo">
+        <svg class="icone" aria-hidden="true"><use href="#i-garfo"/></svg>
+        Intervalo para almoço
+      </p>
+    </div>
+
+    <div class="faixa-horario">
+      <p class="hora">14h00 <span>às 16h00</span></p>
+      <ul class="sessoes sessoes--unica">
+        <li class="sessao geral">
+          <span class="sessao__trilha">Todos os participantes</span>
+          <h3 class="sessao__titulo">Protagonismo Digital no Governo Federal: o ecossistema de IA e a Matriz de Competência</h3>
+          <p class="sessao__quem">Leandro Oliveira Bahia &mdash; Coordenador-Geral de Estruturação de Dados para IA &middot; Secretaria de Governo Digital (SGD/MGI)</p>
+        </li>
+      </ul>
+    </div>
+
+    <div class="faixa-horario">
+      <p class="hora">16h00 <span>às 16h30</span></p>
+      <p class="intervalo">
+        <svg class="icone" aria-hidden="true"><use href="#i-cafe"/></svg>
+        Coffee break
+      </p>
+    </div>
+
+    <div class="faixa-horario">
+      <p class="hora">16h30 <span>às 18h00</span></p>
+      <ul class="sessoes sessoes--unica">
+        <li class="sessao geral">
+          <span class="sessao__trilha">Todos os participantes</span>
+          <h3 class="sessao__titulo">Os desafios educacionais da Rede Federal em tempos de IA</h3>
+          <p class="sessao__quem">Veruska Ribeiro Machado &mdash; Reitora do Instituto Federal de Brasília</p>
+        </li>
+      </ul>
+    </div>
+
+    <div class="faixa-horario">
+      <p class="hora">18h00 <span>às 19h00</span></p>
+      <ul class="sessoes sessoes--unica">
+        <li class="sessao geral">
+          <span class="sessao__trilha">Todos os participantes</span>
+          <h3 class="sessao__titulo">Encerramento oficial</h3>
+        </li>
+      </ul>
+    </div>
+  </section>
+
+  <section class="nota" style="--cor-nota: var(--item-1);">
+    <svg class="icone" aria-hidden="true"><use href="#i-info"/></svg>
+    <div>
+      <h2>Versão em PDF</h2>
+      <p>
+        Esta página reproduz o conteúdo da programação oficial. O arquivo original,
+        com o mesmo conteúdo em formato de quadro,
+        está disponível para
+        <a href="1.Programacao_Horizonte_IFMA_2026.pptx.pdf" target="_blank" rel="noopener">baixar em PDF</a>.
+      </p>
+      <p>Programação sujeita a ajustes. Confirme os horários no credenciamento.</p>
+    </div>
+  </section>
+
 </main>
+
+<footer class="rodape">
+  <div class="limite">
+    <ul class="valores">
+      <li>Planejar</li>
+      <li>Integrar</li>
+      <li>Inovar</li>
+      <li>Transformar</li>
+    </ul>
+    <img src="logo-ifma.png" alt="Instituto Federal do Maranhão" width="215" height="78">
+  </div>
+</footer>
 
 </body>
 </html>

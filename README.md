@@ -8,18 +8,25 @@ A imagem do mapa funciona como menu principal: cada um dos quatro itens é uma �
 
 | Arquivo | Função |
 | --- | --- |
-| `index.html` | Menu principal, em HTML fluido |
-| `mapa.css` | Estilo do menu principal |
-| `1-programacao.html` | 1 · Rota do Conhecimento — Programação Oficial (PDF) |
+| `index.html` | Menu principal |
+| `1-programacao.html` | 1 · Rota do Conhecimento — Programação Oficial |
 | `2-restaurantes.html` | 2 · Parada dos Sabores — Restaurantes em Barreirinhas |
 | `3-o-que-fazer.html` | 3 · Trilha Barreirinhas Viva — Dicas do que fazer |
 | `4-bem-viver.html` | 4 · Estação Bem-Viver — Atividades fora das palestras |
-| `visualizador.css` | Estilo compartilhado das páginas de visualização |
+| `base.css` | Paleta, cabeçalho e rodapé compartilhados |
+| `mapa.css` | Estilo específico do menu principal |
+| `paginas.css` | Estilo específico das páginas 1 a 4 |
 | `gerar-qrcode.html` | Utilitário para gerar o QR code de acesso ao mapa |
 
-Cada página de material tem um botão fixo **Voltar ao menu principal**.
+Cada página tem uma barra fixa com o botão **Voltar ao menu principal**.
 
-O menu não usa a imagem do mapa como fundo: o layout foi reconstruído em HTML e CSS, com texto real que reflui conforme a largura da tela. Os ícones são SVG embutidos e as cores foram amostradas do material original. A imagem `0.Mapa do Evento.png` segue disponível para download no rodapé da página.
+## Conteúdo em HTML, não em imagem
+
+Nenhuma página usa os PNGs originais como layout. Todo o conteúdo foi transcrito para HTML e CSS, com texto real que reflui conforme a largura da tela, sem proporção travada e sem distorção. As cores foram amostradas dos materiais originais e os ícones são SVG embutidos.
+
+As fotos da página 3 foram recortadas do PNG correspondente e são exibidas com `aspect-ratio` e `object-fit: cover`, o que normaliza o enquadramento sem esticar a imagem.
+
+Os arquivos originais seguem no repositório e podem ser baixados a partir das próprias páginas.
 
 ## Como rodar localmente
 

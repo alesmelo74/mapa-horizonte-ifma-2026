@@ -1,160 +1,7 @@
 /* ==========================================================================
-   Mapa do Evento — Horizonte IFMA 2026
-   Layout fluido em HTML: o conteúdo reflui conforme a largura da tela,
-   sem imagem de fundo fixa e sem distorção.
-   Paleta amostrada do material original.
+   Menu principal — Mapa do Evento
+   Depende de base.css (paleta, cabeçalho e rodapé).
    ========================================================================== */
-
-:root {
-  --navy-escuro: #00102d;
-  --navy: #002b63;
-  --azul-faixa: #0149a3;
-  --azul-claro: #009fe3;
-
-  --item-1: #00449e;
-  --item-2: #f25c00;
-  --item-3: #479633;
-  --item-4: #007ece;
-
-  --fundo: #f8f8f8;
-  --cartao: #ffffff;
-  --cartao-alt: #f1f5fa;
-  --borda: #dfe6ef;
-  --texto: #14243d;
-  --texto-suave: #5b6b83;
-
-  --raio: 14px;
-  --sombra: 0 2px 10px rgba(0, 32, 80, .07);
-  --largura: 1040px;
-  --fonte-titulo: "Poppins", "Segoe UI", system-ui, sans-serif;
-  --fonte-texto: "Open Sans", "Segoe UI", system-ui, sans-serif;
-}
-
-* { box-sizing: border-box; }
-
-html { scroll-behavior: smooth; }
-
-body {
-  margin: 0;
-  background: var(--fundo);
-  color: var(--texto);
-  font-family: var(--fonte-texto);
-  font-size: 16px;
-  line-height: 1.6;
-  -webkit-text-size-adjust: 100%;
-}
-
-.limite {
-  width: 100%;
-  max-width: var(--largura);
-  margin: 0 auto;
-  padding: 0 20px;
-}
-
-/* Ícones em sprite SVG ------------------------------------------------------ */
-.sprite { display: none; }
-
-.icone {
-  width: 1em;
-  height: 1em;
-  flex: none;
-  fill: none;
-  stroke: currentColor;
-  stroke-width: 1.7;
-  stroke-linecap: round;
-  stroke-linejoin: round;
-}
-
-/* Cabeçalho ---------------------------------------------------------------- */
-.cabecalho {
-  background: var(--navy-escuro);
-  background-image:
-    radial-gradient(circle at 88% -30%, rgba(0, 159, 227, .16), transparent 44%),
-    radial-gradient(circle at 96% 8%, rgba(0, 159, 227, .10), transparent 30%);
-  color: #fff;
-  border-bottom: 4px solid var(--azul-claro);
-}
-
-.cabecalho .limite {
-  display: flex;
-  flex-wrap: wrap;
-  align-items: center;
-  gap: 20px 34px;
-  padding-block: 20px;
-}
-
-.marca {
-  display: flex;
-  align-items: center;
-  gap: 14px;
-  margin-right: auto;
-}
-
-.marca__simbolo {
-  width: auto;
-  height: 76px;
-  border-radius: 8px;
-}
-
-.marca__nome {
-  margin: 0;
-  font-family: var(--fonte-titulo);
-  font-weight: 700;
-  font-size: clamp(1.4rem, 4.4vw, 2.1rem);
-  line-height: 1.05;
-  letter-spacing: -.01em;
-  color: var(--azul-claro);
-  text-transform: uppercase;
-}
-.marca__nome b {
-  display: block;
-  color: #fff;
-  font-weight: 700;
-}
-.marca__linha {
-  margin: 5px 0 0;
-  max-width: 34ch;
-  font-size: clamp(.62rem, 1.7vw, .74rem);
-  line-height: 1.35;
-  letter-spacing: .06em;
-  text-transform: uppercase;
-  color: #b8cbe4;
-}
-
-.dados {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 12px 26px;
-  padding-left: 26px;
-  border-left: 1px solid rgba(255, 255, 255, .18);
-}
-
-.dado {
-  display: flex;
-  align-items: center;
-  gap: 11px;
-}
-.dado .icone {
-  width: 27px;
-  height: 27px;
-  color: var(--azul-claro);
-  stroke-width: 1.5;
-}
-.dado__forte {
-  display: block;
-  font-family: var(--fonte-titulo);
-  font-weight: 700;
-  font-size: 1.22rem;
-  line-height: 1.15;
-}
-.dado__forte span { color: var(--azul-claro); }
-.dado__fraco {
-  display: block;
-  font-size: .68rem;
-  letter-spacing: .1em;
-  text-transform: uppercase;
-  color: #b8cbe4;
-}
 
 /* Título da página --------------------------------------------------------- */
 .abertura {
@@ -210,7 +57,7 @@ body {
   position: absolute;
   top: 46px;
   bottom: 46px;
-  left: 33px;
+  left: 32px;
   border-left: 3px dashed #b9cadd;
   z-index: 0;
 }
@@ -375,42 +222,6 @@ body {
 }
 .extras a { color: var(--azul-faixa); font-weight: 600; }
 
-/* Rodapé ------------------------------------------------------------------- */
-.rodape {
-  background: var(--azul-faixa);
-  color: #fff;
-}
-.rodape .limite {
-  display: flex;
-  flex-wrap: wrap;
-  align-items: center;
-  justify-content: space-between;
-  gap: 16px 28px;
-  padding-block: 18px;
-}
-.valores {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 8px 22px;
-  margin: 0;
-  padding: 0;
-  list-style: none;
-  font-family: var(--fonte-titulo);
-  font-style: italic;
-  font-weight: 600;
-  font-size: clamp(.95rem, 2.6vw, 1.18rem);
-}
-.valores li { display: flex; align-items: center; gap: 22px; }
-.valores li:not(:last-child)::after {
-  content: "";
-  width: 6px;
-  height: 6px;
-  background: currentColor;
-  border-radius: 50%;
-  opacity: .65;
-}
-.rodape img { height: 46px; width: auto; border-radius: 4px; }
-
 /* Responsivo --------------------------------------------------------------- */
 @media (max-width: 860px) {
   .marcadores { max-width: none; }
@@ -426,14 +237,6 @@ body {
 }
 
 @media (max-width: 560px) {
-  .dados {
-    padding-left: 0;
-    border-left: 0;
-    border-top: 1px solid rgba(255, 255, 255, .18);
-    padding-top: 14px;
-    width: 100%;
-  }
-  .marca__simbolo { height: 58px; }
   .rota::before { display: none; }
 
   .cartao {
@@ -453,20 +256,15 @@ body {
   .marcadores { grid-column: 1; }
 
   .como-usar { flex-direction: column; text-align: center; }
-  .rodape .limite { justify-content: center; text-align: center; }
-  .valores { justify-content: center; }
 }
 
 /* Impressão ---------------------------------------------------------------- */
 @media print {
-  body { background: #fff; }
   .cartao, .como-usar { box-shadow: none; break-inside: avoid; }
   .extras { display: none; }
 }
 
-/* Respeita quem prefere menos animação. */
 @media (prefers-reduced-motion: reduce) {
-  html { scroll-behavior: auto; }
-  .cartao, .cartao__seta { transition: none; }
   .cartao:hover, .cartao:focus-visible { transform: none; }
+  .cartao:hover .cartao__seta { transform: none; }
 }

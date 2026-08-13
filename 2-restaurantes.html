@@ -3,20 +3,292 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Parada dos Sabores — Restaurantes | Horizonte IFMA 2026</title>
-<link rel="stylesheet" href="visualizador.css">
-</head>
-<body>
+<title>Restaurantes em Barreirinhas — Horizonte IFMA 2026</title>
+<meta name="description" content="Opções gastronômicas em Barreirinhas - MA para suas refeições durante o Horizonte IFMA 2026, com endereços e contatos.">
+<meta name="theme-color" content="#00102d">
 
-<header class="topo">
-  <a class="voltar" href="index.html">&#8592; Voltar ao menu principal</a>
-  <h1 class="titulo">2 &middot; Parada dos Sabores &mdash; Restaurantes</h1>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;600&family=Poppins:wght@600;700&display=swap">
+<link rel="stylesheet" href="base.css">
+<link rel="stylesheet" href="paginas.css">
+</head>
+<body style="--cor-tema: var(--item-2);">
+
+<svg class="sprite" aria-hidden="true" focusable="false">
+  <defs>
+    <symbol id="i-voltar" viewBox="0 0 24 24"><path d="M19 12H6M11.5 6l-6 6 6 6"/></symbol>
+    <symbol id="i-calendario" viewBox="0 0 24 24"><rect x="3" y="5" width="18" height="16" rx="2.5"/><path d="M8 3v4M16 3v4M3 10h18"/></symbol>
+    <symbol id="i-local" viewBox="0 0 24 24"><path d="M12 21s7-5.6 7-11a7 7 0 1 0-14 0c0 5.4 7 11 7 11z"/><circle cx="12" cy="10" r="2.6"/></symbol>
+    <symbol id="i-garfo" viewBox="0 0 24 24"><path d="M7 2v7a2.5 2.5 0 0 0 5 0V2M9.5 11.5V22M17 2c-1.6 1.4-2.4 3-2.4 5s.8 3.2 2.4 4v11"/></symbol>
+    <symbol id="i-instagram" viewBox="0 0 24 24"><rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="4"/><path d="M17.4 6.6h.01"/></symbol>
+    <symbol id="i-onibus" viewBox="0 0 24 24"><rect x="3" y="4" width="18" height="13" rx="2.5"/><path d="M3 10h18M7 17v2.5M17 17v2.5"/><circle cx="7.5" cy="13.6" r="1"/><circle cx="16.5" cy="13.6" r="1"/></symbol>
+    <symbol id="i-info" viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><path d="M12 11v6M12 7.6h.01"/></symbol>
+  </defs>
+</svg>
+
+<header class="cabecalho">
+  <div class="limite">
+    <a class="marca" href="index.html">
+      <img class="marca__simbolo" src="logo-horizonte.png" alt="" width="176" height="218">
+      <span>
+        <span class="marca__nome">Horizonte <b>IFMA 2026</b></span>
+        <span class="marca__linha">O desenvolvimento institucional na era da inteligência artificial</span>
+      </span>
+    </a>
+    <div class="dados">
+      <div class="dado">
+        <svg class="icone" aria-hidden="true"><use href="#i-calendario"/></svg>
+        <span>
+          <span class="dado__forte">19 a 21</span>
+          <span class="dado__fraco">de agosto de 2026</span>
+        </span>
+      </div>
+      <div class="dado">
+        <svg class="icone" aria-hidden="true"><use href="#i-local"/></svg>
+        <span>
+          <span class="dado__forte">Campus <span>Barreirinhas</span></span>
+          <span class="dado__fraco">Barreirinhas - MA</span>
+        </span>
+      </div>
+    </div>
+  </div>
 </header>
 
-<main>
-  <img class="material" src="2.Restaurantes.png"
-       alt="Lista de restaurantes para sua refeição em Barreirinhas durante o Horizonte IFMA 2026, com endereços e perfis no Instagram.">
+<nav class="barra" aria-label="Navegação da página">
+  <div class="limite">
+    <a class="voltar" href="index.html">
+      <svg class="icone" aria-hidden="true"><use href="#i-voltar"/></svg>
+      Voltar ao menu principal
+    </a>
+    <p class="barra__titulo">2 &middot; Parada dos Sabores &mdash; <b>Restaurantes</b></p>
+  </div>
+</nav>
+
+<main class="limite">
+
+  <div class="intro">
+    <p class="intro__selo">
+      <svg class="icone" aria-hidden="true"><use href="#i-garfo"/></svg>
+      Parada dos Sabores
+    </p>
+    <h1>Restaurantes <span>em Barreirinhas</span></h1>
+    <p>
+      Opções gastronômicas em Barreirinhas - MA para suas refeições durante o
+      <strong>Horizonte IFMA 2026</strong>.
+    </p>
+  </div>
+
+  <ol class="lista-locais">
+
+    <li class="local">
+      <span class="local__numero" aria-hidden="true">1</span>
+      <div>
+        <h2 class="local__nome">Restaurante A Canoa</h2>
+        <p class="local__tipo">Regional, frutos do mar e pizzas</p>
+      </div>
+      <ul class="local__dados">
+        <li><svg class="icone" aria-hidden="true"><use href="#i-local"/></svg>Av. Beira Rio, 300 - Centro</li>
+        <li>
+          <svg class="icone" aria-hidden="true"><use href="#i-instagram"/></svg>
+          <a href="https://www.instagram.com/acanoarest" target="_blank" rel="noopener">@acanoarest</a>
+        </li>
+      </ul>
+    </li>
+
+    <li class="local">
+      <span class="local__numero" aria-hidden="true">2</span>
+      <div>
+        <h2 class="local__nome">Mangue Restaurante</h2>
+        <p class="local__tipo">Brasileira, frutos do mar e regional</p>
+      </div>
+      <ul class="local__dados">
+        <li><svg class="icone" aria-hidden="true"><use href="#i-local"/></svg>Rua Conrado Ataíde - Centro</li>
+        <li>
+          <svg class="icone" aria-hidden="true"><use href="#i-instagram"/></svg>
+          <a href="https://www.instagram.com/mangue.restaurante" target="_blank" rel="noopener">@mangue.restaurante</a>
+        </li>
+      </ul>
+    </li>
+
+    <li class="local">
+      <span class="local__numero" aria-hidden="true">3</span>
+      <div>
+        <h2 class="local__nome">O Bambu</h2>
+        <p class="local__tipo">Frutos do mar, pizzas e japonesa</p>
+      </div>
+      <ul class="local__dados">
+        <li><svg class="icone" aria-hidden="true"><use href="#i-local"/></svg>Av. Beira Rio, 203 - Centro</li>
+        <li>
+          <svg class="icone" aria-hidden="true"><use href="#i-instagram"/></svg>
+          <a href="https://www.instagram.com/restauranteobambu" target="_blank" rel="noopener">@restauranteobambu</a>
+        </li>
+      </ul>
+    </li>
+
+    <li class="local">
+      <span class="local__numero" aria-hidden="true">4</span>
+      <div>
+        <h2 class="local__nome">Bambaê Bar e Pizzaria</h2>
+        <p class="local__tipo">Frutos do mar, pizzas e petiscos</p>
+      </div>
+      <ul class="local__dados">
+        <li><svg class="icone" aria-hidden="true"><use href="#i-local"/></svg>Boa Vista, à beira do Rio Preguiças</li>
+        <li>
+          <svg class="icone" aria-hidden="true"><use href="#i-instagram"/></svg>
+          <a href="https://www.instagram.com/restaurantebambae" target="_blank" rel="noopener">@restaurantebambae</a>
+        </li>
+      </ul>
+    </li>
+
+    <li class="local">
+      <span class="local__numero" aria-hidden="true">5</span>
+      <div>
+        <h2 class="local__nome">Bistrô das Dunas</h2>
+        <p class="local__tipo">Carnes e culinária brasileira</p>
+      </div>
+      <ul class="local__dados">
+        <li><svg class="icone" aria-hidden="true"><use href="#i-local"/></svg>Rua 31 de Março, 2000</li>
+        <li>
+          <svg class="icone" aria-hidden="true"><use href="#i-instagram"/></svg>
+          <a href="https://www.instagram.com/bistrodasdunas" target="_blank" rel="noopener">@bistrodasdunas</a>
+        </li>
+      </ul>
+    </li>
+
+    <li class="local">
+      <span class="local__numero" aria-hidden="true">6</span>
+      <div>
+        <h2 class="local__nome">O Jacaré</h2>
+        <p class="local__tipo">Bar e culinária brasileira</p>
+      </div>
+      <ul class="local__dados">
+        <li><svg class="icone" aria-hidden="true"><use href="#i-local"/></svg>Av. Beira Rio, 2 - Centro</li>
+        <li>
+          <svg class="icone" aria-hidden="true"><use href="#i-instagram"/></svg>
+          <a href="https://www.instagram.com/o_jacare_pub" target="_blank" rel="noopener">@o_jacare_pub</a>
+        </li>
+      </ul>
+    </li>
+
+    <li class="local">
+      <span class="local__numero" aria-hidden="true">7</span>
+      <div>
+        <h2 class="local__nome">Restaurante Terral</h2>
+        <p class="local__tipo">Brasileira, preços acessíveis</p>
+      </div>
+      <ul class="local__dados">
+        <li><svg class="icone" aria-hidden="true"><use href="#i-local"/></svg>Av. Joaquim Soeiro de Carvalho - Centro</li>
+        <li>
+          <svg class="icone" aria-hidden="true"><use href="#i-instagram"/></svg>
+          <a href="https://www.instagram.com/restaurante_terral" target="_blank" rel="noopener">@restaurante_terral</a>
+        </li>
+      </ul>
+    </li>
+
+    <li class="local">
+      <span class="local__numero" aria-hidden="true">8</span>
+      <div>
+        <h2 class="local__nome">Vila 31</h2>
+        <p class="local__tipo">Espaço gastronômico variado</p>
+      </div>
+      <ul class="local__dados">
+        <li><svg class="icone" aria-hidden="true"><use href="#i-local"/></svg>Rua 31 de Março, 64</li>
+        <li>
+          <svg class="icone" aria-hidden="true"><use href="#i-instagram"/></svg>
+          <a href="https://www.instagram.com/vila31barreirinhas" target="_blank" rel="noopener">@vila31barreirinhas</a>
+        </li>
+      </ul>
+    </li>
+
+    <li class="local">
+      <span class="local__numero" aria-hidden="true">9</span>
+      <div>
+        <h2 class="local__nome">Saporito Casa de Massas</h2>
+        <p class="local__tipo">Massas, pizzas e saladas</p>
+      </div>
+      <ul class="local__dados">
+        <li><svg class="icone" aria-hidden="true"><use href="#i-local"/></svg>Av. 31 de Março - Vila 31</li>
+        <li>
+          <svg class="icone" aria-hidden="true"><use href="#i-instagram"/></svg>
+          <a href="https://www.instagram.com/saporito" target="_blank" rel="noopener">@saporito</a>
+        </li>
+      </ul>
+    </li>
+
+    <li class="local local--indicado">
+      <span class="local__numero" aria-hidden="true">10</span>
+      <div>
+        <h2 class="local__nome">Vale Gastronomia</h2>
+        <p class="local__tipo">Culinária regional na estrada</p>
+      </div>
+      <ul class="local__dados">
+        <li><svg class="icone" aria-hidden="true"><use href="#i-local"/></svg>BR-315, rumo a Paulino Neves</li>
+        <li>
+          <svg class="icone" aria-hidden="true"><use href="#i-instagram"/></svg>
+          <a href="https://www.instagram.com/restaurantevalegastronomia" target="_blank" rel="noopener">@restaurantevalegastronomia</a>
+        </li>
+      </ul>
+      <p class="local__selo">Restaurante indicado</p>
+    </li>
+
+    <li class="local">
+      <span class="local__numero" aria-hidden="true">11</span>
+      <div>
+        <h2 class="local__nome">Restaurante Popular</h2>
+        <p class="local__tipo">Refeições a preço acessível</p>
+      </div>
+      <ul class="local__dados">
+        <li><svg class="icone" aria-hidden="true"><use href="#i-local"/></svg>Av. Joaquim Soeiro de Carvalho</li>
+      </ul>
+    </li>
+
+    <li class="local">
+      <span class="local__numero" aria-hidden="true">12</span>
+      <div>
+        <h2 class="local__nome">Pier 71</h2>
+        <p class="local__tipo">Bar e restaurante à beira do rio</p>
+      </div>
+      <ul class="local__dados">
+        <li><svg class="icone" aria-hidden="true"><use href="#i-local"/></svg>Av. Beira Rio - Centro</li>
+        <li>
+          <svg class="icone" aria-hidden="true"><use href="#i-instagram"/></svg>
+          <a href="https://www.instagram.com/pier71bhs" target="_blank" rel="noopener">@pier71bhs</a>
+        </li>
+      </ul>
+    </li>
+
+  </ol>
+
+  <section class="nota" style="--cor-nota: var(--trilha-gp);">
+    <svg class="icone" aria-hidden="true"><use href="#i-onibus"/></svg>
+    <div>
+      <h2>Traslado no horário do almoço</h2>
+      <p>O ônibus fará o traslado do campus ao Vale Gastronomia para os interessados.</p>
+    </div>
+  </section>
+
+  <section class="nota" style="--cor-nota: var(--item-2);">
+    <svg class="icone" aria-hidden="true"><use href="#i-info"/></svg>
+    <div>
+      <h2>Dicas importantes</h2>
+      <p>Confirme horários de funcionamento e formas de pagamento diretamente com o estabelecimento.</p>
+    </div>
+  </section>
+
 </main>
+
+<footer class="rodape">
+  <div class="limite">
+    <ul class="valores">
+      <li>Planejar</li>
+      <li>Integrar</li>
+      <li>Inovar</li>
+      <li>Transformar</li>
+    </ul>
+    <img src="logo-ifma.png" alt="Instituto Federal do Maranhão" width="215" height="78">
+  </div>
+</footer>
 
 </body>
 </html>
