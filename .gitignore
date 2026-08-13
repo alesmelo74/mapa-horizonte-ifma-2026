@@ -5,3 +5,6 @@ desktop.ini
 .DS_Store
 *.tmp
 ~$*
+
+# Configuração local do editor
+.vscode/
