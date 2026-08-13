@@ -1,0 +1,257 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Gerar QR Code do mapa | Horizonte IFMA 2026</title>
+<style>
+  * { box-sizing: border-box; }
+
+  body {
+    margin: 0;
+    padding: 32px 20px 64px;
+    background: #10141c;
+    color: #fff;
+    font-family: system-ui, "Segoe UI", Roboto, sans-serif;
+    line-height: 1.6;
+  }
+
+  .caixa { max-width: 720px; margin: 0 auto; }
+
+  h1 { font-size: clamp(20px, 3vw, 28px); margin: 0 0 6px; }
+  .sub { margin: 0 0 28px; color: #9fb0c8; font-size: 15px; }
+
+  label { display: block; margin-bottom: 6px; font-size: 14px; color: #c8d6ea; }
+
+  input[type="url"], input[type="text"] {
+    width: 100%;
+    padding: 12px 14px;
+    background: #1a2130;
+    border: 1px solid #2e3c54;
+    border-radius: 8px;
+    color: #fff;
+    font-size: 15px;
+    font-family: inherit;
+  }
+  input:focus { outline: 2px solid #0a84ff; outline-offset: 1px; border-color: #0a84ff; }
+
+  .campo { margin-bottom: 18px; }
+
+  .linha { display: flex; flex-wrap: wrap; gap: 12px; align-items: center; margin: 22px 0; }
+
+  button {
+    padding: 11px 20px;
+    background: #0a84ff;
+    color: #fff;
+    border: 0;
+    border-radius: 8px;
+    font-size: 15px;
+    font-weight: 700;
+    font-family: inherit;
+    cursor: pointer;
+  }
+  button:hover { background: #339dff; }
+  button.secundario { background: #263043; }
+  button.secundario:hover { background: #33405a; }
+  button:disabled { opacity: .45; cursor: not-allowed; }
+  button:focus-visible { outline: 3px solid #ffd600; outline-offset: 2px; }
+
+  .painel {
+    margin-top: 8px;
+    padding: 28px;
+    background: #fff;
+    border-radius: 14px;
+    text-align: center;
+  }
+  .painel canvas { width: 100%; max-width: 320px; height: auto; image-rendering: pixelated; }
+  .painel .legenda {
+    margin: 14px 0 0;
+    color: #10141c;
+    font-weight: 700;
+    font-size: 16px;
+    word-break: break-word;
+  }
+
+  .aviso {
+    margin-top: 22px;
+    padding: 12px 16px;
+    border-radius: 8px;
+    background: #2a1e1e;
+    border: 1px solid #5c3434;
+    color: #ffb4b4;
+    font-size: 14px;
+  }
+  .aviso[hidden] { display: none; }
+
+  .nota { margin-top: 26px; font-size: 13px; color: #7f8fa6; }
+</style>
+</head>
+<body>
+
+<div class="caixa">
+  <h1>Gerar QR Code do Mapa do Evento</h1>
+  <p class="sub">
+    Publique a pasta primeiro, cole o endereço final do <code>index.html</code> abaixo
+    e baixe o QR code em PNG (para telas e impressos simples) ou SVG (vetorial, ideal para banner e gráfica).
+  </p>
+
+  <div class="campo">
+    <label for="url">Endereço publicado</label>
+    <input type="url" id="url" placeholder="https://seu-endereco.netlify.app/" value="">
+  </div>
+
+  <div class="campo">
+    <label for="legenda">Texto abaixo do QR (opcional)</label>
+    <input type="text" id="legenda" value="Mapa do Evento &middot; Horizonte IFMA 2026">
+  </div>
+
+  <div class="linha">
+    <button type="button" id="btnGerar">Gerar QR Code</button>
+    <button type="button" class="secundario" id="btnPng" disabled>Baixar PNG</button>
+    <button type="button" class="secundario" id="btnSvg" disabled>Baixar SVG</button>
+  </div>
+
+  <div class="aviso" id="aviso" hidden></div>
+
+  <div class="painel" id="painel" hidden>
+    <canvas id="tela" width="320" height="320"></canvas>
+    <p class="legenda" id="rotulo"></p>
+  </div>
+
+  <p class="nota">
+    O QR code é montado aqui no seu navegador: o endereço não é enviado para nenhum serviço.
+    A biblioteca de codificação vem de CDN, então mantenha a internet ligada na primeira abertura desta página.
+  </p>
+</div>
+
+<script src="https://cdn.jsdelivr.net/npm/qrcode-generator@1.4.4/qrcode.js"></script>
+<script>
+(() => {
+  const campoUrl = document.getElementById('url');
+  const campoLegenda = document.getElementById('legenda');
+  const btnGerar = document.getElementById('btnGerar');
+  const btnPng = document.getElementById('btnPng');
+  const btnSvg = document.getElementById('btnSvg');
+  const painel = document.getElementById('painel');
+  const tela = document.getElementById('tela');
+  const rotulo = document.getElementById('rotulo');
+  const aviso = document.getElementById('aviso');
+
+  const MARGEM = 4;            // módulos de "quiet zone" exigidos pelo padrão QR
+  const LADO_PNG = 1200;       // resolução do PNG exportado, boa para impressão
+  let qr = null;
+
+  const mostrarAviso = (texto) => {
+    aviso.textContent = texto;
+    aviso.hidden = !texto;
+  };
+
+  const nomeArquivo = (ext) => `qrcode-mapa-horizonte-ifma-2026.${ext}`;
+
+  const baixar = (href, nome) => {
+    const a = document.createElement('a');
+    a.href = href;
+    a.download = nome;
+    a.click();
+  };
+
+  // Desenha o QR em qualquer canvas, no tamanho pedido.
+  const desenhar = (canvas, lado) => {
+    const modulos = qr.getModuleCount();
+    const total = modulos + MARGEM * 2;
+    const escala = Math.floor(lado / total) || 1;
+    const px = total * escala;
+
+    canvas.width = px;
+    canvas.height = px;
+
+    const ctx = canvas.getContext('2d');
+    ctx.fillStyle = '#ffffff';
+    ctx.fillRect(0, 0, px, px);
+    ctx.fillStyle = '#000000';
+
+    for (let linha = 0; linha < modulos; linha++) {
+      for (let coluna = 0; coluna < modulos; coluna++) {
+        if (qr.isDark(linha, coluna)) {
+          ctx.fillRect(
+            (coluna + MARGEM) * escala,
+            (linha + MARGEM) * escala,
+            escala,
+            escala
+          );
+        }
+      }
+    }
+  };
+
+  const montarSvg = () => {
+    const modulos = qr.getModuleCount();
+    const total = modulos + MARGEM * 2;
+    let caminho = '';
+
+    for (let linha = 0; linha < modulos; linha++) {
+      for (let coluna = 0; coluna < modulos; coluna++) {
+        if (qr.isDark(linha, coluna)) {
+          caminho += `M${coluna + MARGEM} ${linha + MARGEM}h1v1h-1z`;
+        }
+      }
+    }
+
+    return `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 ${total} ${total}" width="1200" height="1200" shape-rendering="crispEdges">`
+      + `<rect width="${total}" height="${total}" fill="#ffffff"/>`
+      + `<path d="${caminho}" fill="#000000"/>`
+      + `</svg>`;
+  };
+
+  btnGerar.addEventListener('click', () => {
+    if (typeof qrcode !== 'function') {
+      mostrarAviso('A biblioteca de QR code não carregou. Verifique a conexão com a internet e recarregue a página.');
+      return;
+    }
+
+    const endereco = campoUrl.value.trim();
+    if (!endereco) {
+      mostrarAviso('Cole o endereço publicado antes de gerar.');
+      campoUrl.focus();
+      return;
+    }
+    if (!/^https?:\/\//i.test(endereco)) {
+      mostrarAviso('O endereço precisa começar com https:// para o celular abrir direto ao escanear.');
+      campoUrl.focus();
+      return;
+    }
+
+    mostrarAviso('');
+
+    // Nível de correção M: equilíbrio entre densidade e tolerância a sujeira/dobra no impresso.
+    qr = qrcode(0, 'M');
+    qr.addData(endereco);
+    qr.make();
+
+    desenhar(tela, 640);
+    rotulo.textContent = campoLegenda.value.trim();
+    painel.hidden = false;
+    btnPng.disabled = false;
+    btnSvg.disabled = false;
+  });
+
+  btnPng.addEventListener('click', () => {
+    const grande = document.createElement('canvas');
+    desenhar(grande, LADO_PNG);
+    baixar(grande.toDataURL('image/png'), nomeArquivo('png'));
+  });
+
+  btnSvg.addEventListener('click', () => {
+    const blob = new Blob([montarSvg()], { type: 'image/svg+xml' });
+    const url = URL.createObjectURL(blob);
+    baixar(url, nomeArquivo('svg'));
+    setTimeout(() => URL.revokeObjectURL(url), 1000);
+  });
+
+  campoUrl.addEventListener('keydown', (e) => {
+    if (e.key === 'Enter') btnGerar.click();
+  });
+})();
+</script>
+</body>
+</html>

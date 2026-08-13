@@ -1,0 +1,7 @@
+# Arquivos de sistema e temporários que não devem ir para o repositório.
+Thumbs.db
+ehthumbs.db
+desktop.ini
+.DS_Store
+*.tmp
+~$*

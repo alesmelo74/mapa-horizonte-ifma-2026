@@ -1,0 +1,228 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Mapa do Evento — Horizonte IFMA 2026</title>
+<style>
+  :root { --map-w: 1122; --map-h: 1402; }
+
+  * { box-sizing: border-box; }
+
+  body {
+    margin: 0;
+    background: #10141c;
+    font-family: system-ui, "Segoe UI", Roboto, sans-serif;
+    color: #fff;
+  }
+
+  /* Palco: mantém a proporção exata da imagem para que as áreas
+     clicáveis (em %) acompanhem qualquer tamanho de tela. */
+  .mapa {
+    position: relative;
+    width: min(100vw, calc(100vh * var(--map-w) / var(--map-h)));
+    margin: 0 auto;
+    aspect-ratio: var(--map-w) / var(--map-h);
+    background-image: url("0.Mapa%20do%20Evento.png");
+    background-size: 100% 100%;
+    background-repeat: no-repeat;
+  }
+
+  .hotspot {
+    position: absolute;
+    display: block;
+    border-radius: 10px;
+    text-decoration: none;
+    color: transparent;
+    outline: none;
+    -webkit-tap-highlight-color: transparent;
+    transition: background-color .15s, box-shadow .15s;
+  }
+
+  .hotspot:hover,
+  .hotspot:focus-visible {
+    background-color: rgba(255, 214, 0, .28);
+    box-shadow: 0 0 0 3px rgba(255, 214, 0, .9) inset;
+  }
+
+  /* Rótulo acessível, visível apenas para leitores de tela */
+  .sr-only {
+    position: absolute;
+    width: 1px; height: 1px;
+    padding: 0; margin: -1px;
+    overflow: hidden;
+    clip: rect(0 0 0 0);
+    white-space: nowrap;
+    border: 0;
+  }
+
+  /* ---------- Modo de edição ---------- */
+  body.editando .hotspot {
+    background-color: rgba(0, 170, 255, .30);
+    box-shadow: 0 0 0 2px #00aaff inset;
+    color: #fff;
+    cursor: move;
+    font-weight: 700;
+    font-size: clamp(12px, 1.6vw, 20px);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-shadow: 0 1px 3px #000;
+  }
+
+  body.editando .alca {
+    position: absolute;
+    right: -6px; bottom: -6px;
+    width: 14px; height: 14px;
+    background: #fff;
+    border: 2px solid #00aaff;
+    border-radius: 3px;
+    cursor: nwse-resize;
+  }
+  .alca { display: none; }
+
+  /* A caixa de ajuda é uma ferramenta interna: fica oculta para os
+     visitantes e só aparece quando o modo de edição é ativado com "E". */
+  .ajuda {
+    display: none;
+    position: fixed;
+    left: 12px; bottom: 12px;
+    max-width: 340px;
+    padding: 10px 14px;
+    background: rgba(0, 0, 0, .78);
+    border: 1px solid #2b3648;
+    border-radius: 10px;
+    font-size: 13px;
+    line-height: 1.5;
+    z-index: 10;
+  }
+  body.editando .ajuda { display: block; }
+  .ajuda kbd {
+    background: #263043;
+    border-radius: 4px;
+    padding: 1px 6px;
+    font-family: inherit;
+  }
+  .ajuda button {
+    margin-top: 8px;
+    padding: 6px 12px;
+    background: #00aaff;
+    color: #04121d;
+    border: 0;
+    border-radius: 6px;
+    font-weight: 700;
+    cursor: pointer;
+  }
+  .ajuda .so-edicao { display: none; }
+  body.editando .ajuda .so-edicao { display: block; }
+</style>
+</head>
+<body>
+
+<div class="mapa" id="mapa">
+  <!-- 1 — Rota do Conhecimento -->
+  <a class="hotspot" href="1-programacao.html"
+     title="Rota do Conhecimento — Programação Oficial (PDF)"
+     style="left:8.00%; top:28.60%; width:84.00%; height:11.70%;">
+    <span class="sr-only">1 — Rota do Conhecimento: abrir a Programação Oficial em PDF</span>
+    <span aria-hidden="true">1</span><i class="alca"></i>
+  </a>
+
+  <!-- 2 — Parada dos Sabores -->
+  <a class="hotspot" href="2-restaurantes.html"
+     title="Parada dos Sabores — Restaurantes em Barreirinhas"
+     style="left:8.00%; top:41.70%; width:84.00%; height:11.70%;">
+    <span class="sr-only">2 — Parada dos Sabores: abrir a lista de restaurantes em Barreirinhas</span>
+    <span aria-hidden="true">2</span><i class="alca"></i>
+  </a>
+
+  <!-- 3 — Trilha Barreirinhas Viva -->
+  <a class="hotspot" href="3-o-que-fazer.html"
+     title="Trilha Barreirinhas Viva — Dicas do que fazer em Barreirinhas"
+     style="left:8.00%; top:54.90%; width:84.00%; height:11.60%;">
+    <span class="sr-only">3 — Trilha Barreirinhas Viva: abrir as dicas do que fazer em Barreirinhas</span>
+    <span aria-hidden="true">3</span><i class="alca"></i>
+  </a>
+
+  <!-- 4 — Estação Bem-Viver -->
+  <a class="hotspot" href="4-bem-viver.html"
+     title="Estação Bem-Viver — Atividades fora das palestras"
+     style="left:8.00%; top:67.40%; width:84.00%; height:14.50%;">
+    <span class="sr-only">4 — Estação Bem-Viver: abrir as atividades fora das palestras</span>
+    <span aria-hidden="true">4</span><i class="alca"></i>
+  </a>
+</div>
+
+<!-- Ferramenta interna de ajuste das áreas clicáveis. Oculta por padrão; pressione "E". -->
+<div class="ajuda">
+  <strong>Modo de edição</strong> &mdash; pressione <kbd>E</kbd> para sair.
+  <div class="so-edicao">
+    Arraste o retângulo para mover, use o quadradinho do canto para redimensionar.
+    <button type="button" id="btnCopiar">Copiar coordenadas</button>
+  </div>
+</div>
+
+<script>
+(() => {
+  const mapa = document.getElementById('mapa');
+  const spots = [...document.querySelectorAll('.hotspot')];
+  let editando = false;
+
+  document.addEventListener('keydown', (e) => {
+    if (e.key === 'e' || e.key === 'E') {
+      editando = !editando;
+      document.body.classList.toggle('editando', editando);
+    }
+  });
+
+  // Impede a navegação enquanto o modo de edição está ativo.
+  spots.forEach((spot) => {
+    spot.addEventListener('click', (e) => { if (editando) e.preventDefault(); });
+    spot.addEventListener('pointerdown', (e) => {
+      if (!editando) return;
+      e.preventDefault();
+
+      const caixa = mapa.getBoundingClientRect();
+      const alvo = spot.getBoundingClientRect();
+      const redimensionando = e.target.classList.contains('alca');
+      const x0 = e.clientX, y0 = e.clientY;
+      const left0 = alvo.left - caixa.left, top0 = alvo.top - caixa.top;
+      const w0 = alvo.width, h0 = alvo.height;
+      const pctX = (v) => (v / caixa.width) * 100;
+      const pctY = (v) => (v / caixa.height) * 100;
+
+      const mover = (ev) => {
+        const dx = ev.clientX - x0, dy = ev.clientY - y0;
+        if (redimensionando) {
+          spot.style.width = Math.max(pctX(w0 + dx), 1).toFixed(2) + '%';
+          spot.style.height = Math.max(pctY(h0 + dy), 1).toFixed(2) + '%';
+        } else {
+          spot.style.left = pctX(left0 + dx).toFixed(2) + '%';
+          spot.style.top = pctY(top0 + dy).toFixed(2) + '%';
+        }
+      };
+      const soltar = () => {
+        window.removeEventListener('pointermove', mover);
+        window.removeEventListener('pointerup', soltar);
+      };
+      window.addEventListener('pointermove', mover);
+      window.addEventListener('pointerup', soltar);
+    });
+  });
+
+  document.getElementById('btnCopiar').addEventListener('click', async () => {
+    const texto = spots.map((s, i) => {
+      const st = s.style;
+      return `<!-- ${i + 1} --> style="left:${st.left}; top:${st.top}; width:${st.width}; height:${st.height};"`;
+    }).join('\n');
+    try {
+      await navigator.clipboard.writeText(texto);
+      alert('Coordenadas copiadas. Cole no lugar dos atributos style do index.html.');
+    } catch {
+      prompt('Copie manualmente:', texto);
+    }
+  });
+})();
+</script>
+</body>
+</html>
