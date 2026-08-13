@@ -4,225 +4,215 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Mapa do Evento — Horizonte IFMA 2026</title>
-<style>
-  :root { --map-w: 1122; --map-h: 1402; }
+<meta name="description" content="Mapa do Evento do Horizonte IFMA 2026: programação, restaurantes em Barreirinhas, dicas do que fazer e atividades da Estação Bem-Viver. Campus Barreirinhas, 19 a 21 de agosto de 2026.">
+<meta name="theme-color" content="#00102d">
 
-  * { box-sizing: border-box; }
+<meta property="og:type" content="website">
+<meta property="og:title" content="Mapa do Evento — Horizonte IFMA 2026">
+<meta property="og:description" content="Descubra os principais espaços e experiências do Horizonte IFMA 2026, no Campus Barreirinhas.">
+<meta property="og:image" content="0.Mapa do Evento.png">
+<meta property="og:locale" content="pt_BR">
 
-  body {
-    margin: 0;
-    background: #10141c;
-    font-family: system-ui, "Segoe UI", Roboto, sans-serif;
-    color: #fff;
-  }
-
-  /* Palco: mantém a proporção exata da imagem para que as áreas
-     clicáveis (em %) acompanhem qualquer tamanho de tela. */
-  .mapa {
-    position: relative;
-    width: min(100vw, calc(100vh * var(--map-w) / var(--map-h)));
-    margin: 0 auto;
-    aspect-ratio: var(--map-w) / var(--map-h);
-    background-image: url("0.Mapa%20do%20Evento.png");
-    background-size: 100% 100%;
-    background-repeat: no-repeat;
-  }
-
-  .hotspot {
-    position: absolute;
-    display: block;
-    border-radius: 10px;
-    text-decoration: none;
-    color: transparent;
-    outline: none;
-    -webkit-tap-highlight-color: transparent;
-    transition: background-color .15s, box-shadow .15s;
-  }
-
-  .hotspot:hover,
-  .hotspot:focus-visible {
-    background-color: rgba(255, 214, 0, .28);
-    box-shadow: 0 0 0 3px rgba(255, 214, 0, .9) inset;
-  }
-
-  /* Rótulo acessível, visível apenas para leitores de tela */
-  .sr-only {
-    position: absolute;
-    width: 1px; height: 1px;
-    padding: 0; margin: -1px;
-    overflow: hidden;
-    clip: rect(0 0 0 0);
-    white-space: nowrap;
-    border: 0;
-  }
-
-  /* ---------- Modo de edição ---------- */
-  body.editando .hotspot {
-    background-color: rgba(0, 170, 255, .30);
-    box-shadow: 0 0 0 2px #00aaff inset;
-    color: #fff;
-    cursor: move;
-    font-weight: 700;
-    font-size: clamp(12px, 1.6vw, 20px);
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    text-shadow: 0 1px 3px #000;
-  }
-
-  body.editando .alca {
-    position: absolute;
-    right: -6px; bottom: -6px;
-    width: 14px; height: 14px;
-    background: #fff;
-    border: 2px solid #00aaff;
-    border-radius: 3px;
-    cursor: nwse-resize;
-  }
-  .alca { display: none; }
-
-  /* A caixa de ajuda é uma ferramenta interna: fica oculta para os
-     visitantes e só aparece quando o modo de edição é ativado com "E". */
-  .ajuda {
-    display: none;
-    position: fixed;
-    left: 12px; bottom: 12px;
-    max-width: 340px;
-    padding: 10px 14px;
-    background: rgba(0, 0, 0, .78);
-    border: 1px solid #2b3648;
-    border-radius: 10px;
-    font-size: 13px;
-    line-height: 1.5;
-    z-index: 10;
-  }
-  body.editando .ajuda { display: block; }
-  .ajuda kbd {
-    background: #263043;
-    border-radius: 4px;
-    padding: 1px 6px;
-    font-family: inherit;
-  }
-  .ajuda button {
-    margin-top: 8px;
-    padding: 6px 12px;
-    background: #00aaff;
-    color: #04121d;
-    border: 0;
-    border-radius: 6px;
-    font-weight: 700;
-    cursor: pointer;
-  }
-  .ajuda .so-edicao { display: none; }
-  body.editando .ajuda .so-edicao { display: block; }
-</style>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;600&family=Poppins:wght@600;700&display=swap">
+<link rel="stylesheet" href="mapa.css">
 </head>
 <body>
 
-<div class="mapa" id="mapa">
-  <!-- 1 — Rota do Conhecimento -->
-  <a class="hotspot" href="1-programacao.html"
-     title="Rota do Conhecimento — Programação Oficial (PDF)"
-     style="left:8.00%; top:28.60%; width:84.00%; height:11.70%;">
-    <span class="sr-only">1 — Rota do Conhecimento: abrir a Programação Oficial em PDF</span>
-    <span aria-hidden="true">1</span><i class="alca"></i>
-  </a>
+<!-- Biblioteca de ícones. Fica oculta e é referenciada via <use>. -->
+<svg class="sprite" aria-hidden="true" focusable="false">
+  <defs>
+    <symbol id="i-calendario" viewBox="0 0 24 24"><rect x="3" y="5" width="18" height="16" rx="2.5"/><path d="M8 3v4M16 3v4M3 10h18"/></symbol>
+    <symbol id="i-local" viewBox="0 0 24 24"><path d="M12 21s7-5.6 7-11a7 7 0 1 0-14 0c0 5.4 7 11 7 11z"/><circle cx="12" cy="10" r="2.6"/></symbol>
+    <symbol id="i-palco" viewBox="0 0 24 24"><path d="M3 9h18M4 9V6l8-3 8 3v3M6 9v9M18 9v9M3 21h18"/><path d="M9 21v-4h6v4"/></symbol>
+    <symbol id="i-microfone" viewBox="0 0 24 24"><rect x="9" y="2" width="6" height="11" rx="3"/><path d="M6 11a6 6 0 0 0 12 0M12 17v4M9 21h6"/></symbol>
+    <symbol id="i-auditorio" viewBox="0 0 24 24"><rect x="3" y="3" width="18" height="11" rx="2"/><path d="M8 18h8M6 21h12M12 14v4"/></symbol>
+    <symbol id="i-garfo" viewBox="0 0 24 24"><path d="M7 2v7a2.5 2.5 0 0 0 5 0V2M9.5 11.5V22M17 2c-1.6 1.4-2.4 3-2.4 5s.8 3.2 2.4 4v11"/></symbol>
+    <symbol id="i-prato" viewBox="0 0 24 24"><path d="M3 17h18M4.5 17a7.5 7.5 0 0 1 15 0M12 6.5V9"/><circle cx="12" cy="5.4" r="1.4"/><path d="M2 20.5h20"/></symbol>
+    <symbol id="i-mapa" viewBox="0 0 24 24"><path d="M9 3 3 5.5v15L9 18l6 3 6-2.5v-15L15 6z"/><path d="M9 3v15M15 6v15"/></symbol>
+    <symbol id="i-dunas" viewBox="0 0 24 24"><path d="M2 18c3.2 0 4.6-6 7.4-6S13 18 16 18M8 18c2-3.4 3.6-5 5.6-5s3.4 1.4 4.4 3M2 21h20"/></symbol>
+    <symbol id="i-rio" viewBox="0 0 24 24"><path d="M2 8c2.6-2.4 5-2.4 7.4 0S17 10.4 22 8M2 13c2.6-2.4 5-2.4 7.4 0s5.2 2.4 12.6 0M2 18c2.6-2.4 5-2.4 7.4 0s5.2 2.4 12.6 0"/></symbol>
+    <symbol id="i-sol" viewBox="0 0 24 24"><circle cx="12" cy="13" r="4"/><path d="M12 4v2.5M4.6 13H2M22 13h-2.6M6.3 7.3 4.7 5.7M17.7 7.3l1.6-1.6M2 20h20"/></symbol>
+    <symbol id="i-palmeira" viewBox="0 0 24 24"><path d="M12 8v13M12 8C9.6 5.6 6.4 5.6 4 8M12 8c2.4-2.4 5.6-2.4 8 0M12 8c-1.4-3 0-5 2-6M12 8c1.4-3 0-5-2-6M8 21h8"/></symbol>
+    <symbol id="i-massagem" viewBox="0 0 24 24"><path d="M3 15c2.4-2.6 5.6-3.9 9-3.9s6.6 1.3 9 3.9"/><circle cx="7.5" cy="7.5" r="2.5"/><path d="M12 19h9M3 19h5"/></symbol>
+    <symbol id="i-maquiagem" viewBox="0 0 24 24"><path d="M9 3h3l1 5H8zM8 8h5v13H8z"/><path d="M17 21V11c1.7 0 2.6-1.2 2.6-2.6L18.3 3h-1.6"/></symbol>
+    <symbol id="i-pilates" viewBox="0 0 24 24"><circle cx="8" cy="4.5" r="2"/><path d="M8 6.5v5l4 2 5-3M8 11.5 5 21M12 13.5 14 21M3 21h18"/></symbol>
+    <symbol id="i-dente" viewBox="0 0 24 24"><path d="M12 4.5C9.8 2.9 5.5 2.6 4.5 6c-.8 2.8.6 4.9 1 8 .3 2.2.4 6 2.3 6s1.6-4.6 4.2-4.6 2.3 4.6 4.2 4.6 2-3.8 2.3-6c.4-3.1 1.8-5.2 1-8-1-3.4-5.3-3.1-7.5-1.5z"/></symbol>
+    <symbol id="i-olho" viewBox="0 0 24 24"><path d="M2 12s3.8-6.5 10-6.5S22 12 22 12s-3.8 6.5-10 6.5S2 12 2 12z"/><circle cx="12" cy="12" r="3"/></symbol>
+    <symbol id="i-telescopio" viewBox="0 0 24 24"><path d="m3 13 12-6 2.4 4.4L5.4 17.4zM10 15.5V21M14 17v4M6.5 21h11M18.6 5.6 20 8"/></symbol>
+    <symbol id="i-jogos" viewBox="0 0 24 24"><rect x="2" y="7" width="20" height="11" rx="4"/><path d="M7 10v4M5 12h4M15.5 12.5h.01M18 10.5h.01"/></symbol>
+    <symbol id="i-placa" viewBox="0 0 24 24"><path d="M12 2v20M12 5h7l2.5 3L19 11h-7M12 13H5l-2.5 3L5 19h7"/><path d="M9 22h6"/></symbol>
+    <symbol id="i-seta" viewBox="0 0 24 24"><path d="M5 12h13M12.5 6l6 6-6 6"/></symbol>
+  </defs>
+</svg>
 
-  <!-- 2 — Parada dos Sabores -->
-  <a class="hotspot" href="2-restaurantes.html"
-     title="Parada dos Sabores — Restaurantes em Barreirinhas"
-     style="left:8.00%; top:41.70%; width:84.00%; height:11.70%;">
-    <span class="sr-only">2 — Parada dos Sabores: abrir a lista de restaurantes em Barreirinhas</span>
-    <span aria-hidden="true">2</span><i class="alca"></i>
-  </a>
+<header class="cabecalho">
+  <div class="limite">
+    <div class="marca">
+      <img class="marca__simbolo" src="logo-horizonte.png" alt="" width="176" height="218">
+      <div>
+        <p class="marca__nome">Horizonte <b>IFMA 2026</b></p>
+        <p class="marca__linha">O desenvolvimento institucional na era da inteligência artificial</p>
+      </div>
+    </div>
 
-  <!-- 3 — Trilha Barreirinhas Viva -->
-  <a class="hotspot" href="3-o-que-fazer.html"
-     title="Trilha Barreirinhas Viva — Dicas do que fazer em Barreirinhas"
-     style="left:8.00%; top:54.90%; width:84.00%; height:11.60%;">
-    <span class="sr-only">3 — Trilha Barreirinhas Viva: abrir as dicas do que fazer em Barreirinhas</span>
-    <span aria-hidden="true">3</span><i class="alca"></i>
-  </a>
-
-  <!-- 4 — Estação Bem-Viver -->
-  <a class="hotspot" href="4-bem-viver.html"
-     title="Estação Bem-Viver — Atividades fora das palestras"
-     style="left:8.00%; top:67.40%; width:84.00%; height:14.50%;">
-    <span class="sr-only">4 — Estação Bem-Viver: abrir as atividades fora das palestras</span>
-    <span aria-hidden="true">4</span><i class="alca"></i>
-  </a>
-</div>
-
-<!-- Ferramenta interna de ajuste das áreas clicáveis. Oculta por padrão; pressione "E". -->
-<div class="ajuda">
-  <strong>Modo de edição</strong> &mdash; pressione <kbd>E</kbd> para sair.
-  <div class="so-edicao">
-    Arraste o retângulo para mover, use o quadradinho do canto para redimensionar.
-    <button type="button" id="btnCopiar">Copiar coordenadas</button>
+    <div class="dados">
+      <div class="dado">
+        <svg class="icone" aria-hidden="true"><use href="#i-calendario"/></svg>
+        <span>
+          <span class="dado__forte">19 a 21</span>
+          <span class="dado__fraco">de agosto de 2026</span>
+        </span>
+      </div>
+      <div class="dado">
+        <svg class="icone" aria-hidden="true"><use href="#i-local"/></svg>
+        <span>
+          <span class="dado__forte">Campus <span>Barreirinhas</span></span>
+          <span class="dado__fraco">Barreirinhas - MA</span>
+        </span>
+      </div>
+    </div>
   </div>
-</div>
+</header>
 
-<script>
-(() => {
-  const mapa = document.getElementById('mapa');
-  const spots = [...document.querySelectorAll('.hotspot')];
-  let editando = false;
+<main class="limite">
 
-  document.addEventListener('keydown', (e) => {
-    if (e.key === 'e' || e.key === 'E') {
-      editando = !editando;
-      document.body.classList.toggle('editando', editando);
-    }
-  });
+  <div class="abertura">
+    <h1 class="abertura__titulo">
+      <svg class="icone" aria-hidden="true"><use href="#i-local"/></svg>
+      Mapa do Evento
+    </h1>
+    <p class="abertura__chamada">
+      Descubra os principais espaços e experiências do <strong>Horizonte IFMA 2026</strong>.
+    </p>
+  </div>
 
-  // Impede a navegação enquanto o modo de edição está ativo.
-  spots.forEach((spot) => {
-    spot.addEventListener('click', (e) => { if (editando) e.preventDefault(); });
-    spot.addEventListener('pointerdown', (e) => {
-      if (!editando) return;
-      e.preventDefault();
+  <ol class="rota">
 
-      const caixa = mapa.getBoundingClientRect();
-      const alvo = spot.getBoundingClientRect();
-      const redimensionando = e.target.classList.contains('alca');
-      const x0 = e.clientX, y0 = e.clientY;
-      const left0 = alvo.left - caixa.left, top0 = alvo.top - caixa.top;
-      const w0 = alvo.width, h0 = alvo.height;
-      const pctX = (v) => (v / caixa.width) * 100;
-      const pctY = (v) => (v / caixa.height) * 100;
+    <li class="etapa" style="--cor: var(--item-1);">
+      <a class="cartao" href="1-programacao.html">
+        <span class="pino" aria-hidden="true"><span>1</span></span>
+        <div class="cartao__conteudo">
+          <h2 class="cartao__titulo">Rota do Conhecimento</h2>
+          <p class="cartao__sub">Programação</p>
+          <p class="cartao__desc">
+            Palestras, painéis, oficinas e momentos de troca para fortalecer o
+            desenvolvimento institucional, a inovação e a integração entre as áreas participantes.
+          </p>
+        </div>
+        <ul class="marcadores">
+          <li><svg class="icone" aria-hidden="true"><use href="#i-palco"/></svg>Palco</li>
+          <li><svg class="icone" aria-hidden="true"><use href="#i-microfone"/></svg>Palestras</li>
+          <li><svg class="icone" aria-hidden="true"><use href="#i-calendario"/></svg>Programação</li>
+          <li><svg class="icone" aria-hidden="true"><use href="#i-auditorio"/></svg>Auditório</li>
+        </ul>
+        <span class="cartao__seta" aria-hidden="true">
+          <svg class="icone"><use href="#i-seta"/></svg>
+        </span>
+      </a>
+    </li>
 
-      const mover = (ev) => {
-        const dx = ev.clientX - x0, dy = ev.clientY - y0;
-        if (redimensionando) {
-          spot.style.width = Math.max(pctX(w0 + dx), 1).toFixed(2) + '%';
-          spot.style.height = Math.max(pctY(h0 + dy), 1).toFixed(2) + '%';
-        } else {
-          spot.style.left = pctX(left0 + dx).toFixed(2) + '%';
-          spot.style.top = pctY(top0 + dy).toFixed(2) + '%';
-        }
-      };
-      const soltar = () => {
-        window.removeEventListener('pointermove', mover);
-        window.removeEventListener('pointerup', soltar);
-      };
-      window.addEventListener('pointermove', mover);
-      window.addEventListener('pointerup', soltar);
-    });
-  });
+    <li class="etapa" style="--cor: var(--item-2);">
+      <a class="cartao" href="2-restaurantes.html">
+        <span class="pino" aria-hidden="true"><span>2</span></span>
+        <div class="cartao__conteudo">
+          <h2 class="cartao__titulo">Parada dos Sabores</h2>
+          <p class="cartao__sub">Restaurantes</p>
+          <p class="cartao__desc">
+            Sugestões de restaurantes em Barreirinhas para almoço, jantar e encontros
+            informais durante o evento. Inclui opções variadas e indicação de apoio logístico.
+          </p>
+        </div>
+        <ul class="marcadores">
+          <li><svg class="icone" aria-hidden="true"><use href="#i-garfo"/></svg>Sabores regionais</li>
+          <li><svg class="icone" aria-hidden="true"><use href="#i-prato"/></svg>Almoço e jantar</li>
+          <li><svg class="icone" aria-hidden="true"><use href="#i-mapa"/></svg>Sugestões no mapa</li>
+        </ul>
+        <span class="cartao__seta" aria-hidden="true">
+          <svg class="icone"><use href="#i-seta"/></svg>
+        </span>
+      </a>
+    </li>
 
-  document.getElementById('btnCopiar').addEventListener('click', async () => {
-    const texto = spots.map((s, i) => {
-      const st = s.style;
-      return `<!-- ${i + 1} --> style="left:${st.left}; top:${st.top}; width:${st.width}; height:${st.height};"`;
-    }).join('\n');
-    try {
-      await navigator.clipboard.writeText(texto);
-      alert('Coordenadas copiadas. Cole no lugar dos atributos style do index.html.');
-    } catch {
-      prompt('Copie manualmente:', texto);
-    }
-  });
-})();
-</script>
+    <li class="etapa" style="--cor: var(--item-3);">
+      <a class="cartao" href="3-o-que-fazer.html">
+        <span class="pino" aria-hidden="true"><span>3</span></span>
+        <div class="cartao__conteudo">
+          <h2 class="cartao__titulo">Trilha Barreirinhas Viva</h2>
+          <p class="cartao__sub">Dicas do que fazer em Barreirinhas</p>
+          <p class="cartao__desc">
+            Explore experiências locais como dunas, rio, gastronomia, artesanato e
+            passeios para aproveitar a estadia além da programação oficial.
+          </p>
+        </div>
+        <ul class="marcadores">
+          <li><svg class="icone" aria-hidden="true"><use href="#i-dunas"/></svg>Dunas</li>
+          <li><svg class="icone" aria-hidden="true"><use href="#i-rio"/></svg>Rio</li>
+          <li><svg class="icone" aria-hidden="true"><use href="#i-sol"/></svg>Pôr do sol</li>
+          <li><svg class="icone" aria-hidden="true"><use href="#i-palmeira"/></svg>Cultura local</li>
+        </ul>
+        <span class="cartao__seta" aria-hidden="true">
+          <svg class="icone"><use href="#i-seta"/></svg>
+        </span>
+      </a>
+    </li>
+
+    <li class="etapa" style="--cor: var(--item-4);">
+      <a class="cartao" href="4-bem-viver.html">
+        <span class="pino" aria-hidden="true"><span>4</span></span>
+        <div class="cartao__conteudo">
+          <h2 class="cartao__titulo">Estação Bem-Viver</h2>
+          <p class="cartao__sub">Fora das palestras</p>
+          <p class="cartao__desc">
+            Atividades complementares para relaxamento, cuidado e integração dos participantes.
+          </p>
+        </div>
+        <ul class="marcadores">
+          <li><svg class="icone" aria-hidden="true"><use href="#i-massagem"/></svg>Massagem</li>
+          <li><svg class="icone" aria-hidden="true"><use href="#i-maquiagem"/></svg>Maquiagem</li>
+          <li><svg class="icone" aria-hidden="true"><use href="#i-pilates"/></svg>Pilates</li>
+          <li><svg class="icone" aria-hidden="true"><use href="#i-dente"/></svg>Consulta odontológica</li>
+          <li><svg class="icone" aria-hidden="true"><use href="#i-olho"/></svg>Consulta oftalmológica</li>
+          <li><svg class="icone" aria-hidden="true"><use href="#i-telescopio"/></svg>Astronomia no sertão</li>
+          <li><svg class="icone" aria-hidden="true"><use href="#i-jogos"/></svg>Sala de jogos</li>
+        </ul>
+        <span class="cartao__seta" aria-hidden="true">
+          <svg class="icone"><use href="#i-seta"/></svg>
+        </span>
+      </a>
+    </li>
+
+  </ol>
+
+  <section class="como-usar">
+    <svg class="icone" aria-hidden="true"><use href="#i-placa"/></svg>
+    <div>
+      <h2>Como usar este mapa</h2>
+      <p>
+        Planeje seu percurso, aproveite os serviços disponíveis e viva a experiência
+        completa do <strong>Horizonte IFMA 2026</strong>.
+      </p>
+    </div>
+  </section>
+
+  <p class="extras">
+    <a href="0.Mapa do Evento.png" download>Baixar o mapa em imagem (PNG)</a>
+  </p>
+
+</main>
+
+<footer class="rodape">
+  <div class="limite">
+    <ul class="valores">
+      <li>Planejar</li>
+      <li>Integrar</li>
+      <li>Inovar</li>
+      <li>Transformar</li>
+    </ul>
+    <img src="logo-ifma.png" alt="Instituto Federal do Maranhão" width="215" height="78">
+  </div>
+</footer>
+
 </body>
 </html>

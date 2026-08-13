@@ -8,7 +8,8 @@ A imagem do mapa funciona como menu principal: cada um dos quatro itens é uma �
 
 | Arquivo | Função |
 | --- | --- |
-| `index.html` | Menu principal, com as áreas clicáveis sobre a imagem do mapa |
+| `index.html` | Menu principal, em HTML fluido |
+| `mapa.css` | Estilo do menu principal |
 | `1-programacao.html` | 1 · Rota do Conhecimento — Programação Oficial (PDF) |
 | `2-restaurantes.html` | 2 · Parada dos Sabores — Restaurantes em Barreirinhas |
 | `3-o-que-fazer.html` | 3 · Trilha Barreirinhas Viva — Dicas do que fazer |
@@ -17,6 +18,8 @@ A imagem do mapa funciona como menu principal: cada um dos quatro itens é uma �
 | `gerar-qrcode.html` | Utilitário para gerar o QR code de acesso ao mapa |
 
 Cada página de material tem um botão fixo **Voltar ao menu principal**.
+
+O menu não usa a imagem do mapa como fundo: o layout foi reconstruído em HTML e CSS, com texto real que reflui conforme a largura da tela. Os ícones são SVG embutidos e as cores foram amostradas do material original. A imagem `0.Mapa do Evento.png` segue disponível para download no rodapé da página.
 
 ## Como rodar localmente
 
@@ -29,10 +32,6 @@ python -m http.server 8000
 Depois abra <http://localhost:8000>.
 
 Abrir o `index.html` direto pelo sistema de arquivos também funciona, mas alguns navegadores baixam o PDF em vez de exibi-lo embutido na página 1.
-
-## Ajuste das áreas clicáveis
-
-As áreas do menu são posicionadas em porcentagem, então acompanham qualquer tamanho de tela. Para reposicioná-las, abra o `index.html` e pressione <kbd>E</kbd>: arraste cada retângulo para mover, use o quadradinho do canto para redimensionar e clique em **Copiar coordenadas** para colar os valores de volta nos atributos `style` do HTML.
 
 ## QR code
 
