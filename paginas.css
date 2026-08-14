@@ -401,6 +401,22 @@ main { padding-bottom: 48px; }
 }
 .intervalo .icone { width: 20px; height: 20px; color: var(--item-2-forte); }
 
+/* Complemento do intervalo, como consta na planilha base. */
+.intervalo {
+  flex-wrap: wrap;
+}
+.intervalo span {
+  margin-left: auto;
+  font-weight: 400;
+  font-size: .76rem;
+  letter-spacing: .03em;
+  text-transform: none;
+  color: var(--texto-suave);
+}
+@media (max-width: 620px) {
+  .intervalo span { margin-left: 0; flex-basis: 100%; }
+}
+
 /* ==========================================================================
    Item 2 — Restaurantes
    ========================================================================== */
