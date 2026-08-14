@@ -567,49 +567,172 @@ main { padding-bottom: 48px; }
 }
 
 /* ==========================================================================
-   Item 4 — Estação Bem-Viver
+   Item 4 — Espaço Bem-Estar
    ========================================================================== */
-.atividades {
+
+/* Selo de gratuidade, como no cartaz. */
+.gratuito {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  margin: 20px 0 0;
+  padding: 10px 20px;
+  background: var(--item-3-forte);
+  border-radius: 999px;
+  color: #fff;
+  font-family: var(--fonte-titulo);
+  font-size: .78rem;
+  font-weight: 600;
+  letter-spacing: .06em;
+  text-transform: uppercase;
+}
+.gratuito .icone { width: 18px; height: 18px; }
+
+.cuidados {
   display: grid;
-  gap: 14px;
-  grid-template-columns: repeat(auto-fill, minmax(230px, 1fr));
-  margin: 30px 0 0;
+  gap: 16px;
+  grid-template-columns: repeat(auto-fill, minmax(310px, 1fr));
+  margin: 26px 0 0;
   padding: 0;
   list-style: none;
 }
 
-.atividade {
+.cuidado {
   display: flex;
-  align-items: center;
-  gap: 15px;
-  padding: 18px 20px;
+  flex-direction: column;
+  gap: 14px;
+  padding: 20px;
   background: var(--cartao);
   border: 1px solid var(--borda);
   border-radius: var(--raio);
   box-shadow: var(--sombra);
 }
-.atividade .icone {
-  width: 46px;
-  height: 46px;
-  padding: 11px;
-  background: var(--cartao-alt);
-  border-radius: 12px;
-  color: var(--item-4-forte);
-  stroke-width: 1.6;
+
+.cuidado__topo {
+  display: flex;
+  align-items: center;
+  gap: 14px;
 }
-.atividade h2 {
+.cuidado__icone {
+  display: grid;
+  place-items: center;
+  flex: none;
+  width: 52px;
+  height: 52px;
+  background: var(--cor);
+  border-radius: 50%;
+}
+.cuidado__icone .icone { width: 27px; height: 27px; color: #fff; stroke-width: 1.6; }
+
+.cuidado__nome {
   margin: 0;
   font-family: var(--fonte-titulo);
+  font-weight: 700;
+  font-size: 1.05rem;
+  line-height: 1.2;
+  color: var(--cor);
+  text-transform: uppercase;
+}
+.cuidado__quem {
+  margin: 3px 0 0;
+  font-size: .85rem;
   font-weight: 600;
-  font-size: .97rem;
-  line-height: 1.3;
   color: var(--navy);
 }
-.atividade p {
-  margin: 3px 0 0;
-  font-size: .8rem;
+
+.cuidado__corpo {
+  display: flex;
+  align-items: flex-start;
+  gap: 14px;
+}
+.cuidado__corpo > div { display: grid; gap: 10px; }
+
+/* Proporção fixa com object-fit: a foto nunca distorce. */
+.cuidado__foto {
+  flex: none;
+  width: 132px;
+  aspect-ratio: 4 / 3;
+  object-fit: cover;
+  border-radius: 10px;
+  background: var(--cartao-alt);
+}
+.cuidado__foto--alta { aspect-ratio: 3 / 4; }
+.cuidado__foto--larga { width: 100%; aspect-ratio: 16 / 7; }
+
+.cuidado__desc {
+  margin: 0;
+  font-size: .88rem;
+  line-height: 1.55;
   color: var(--texto-suave);
 }
+
+.cuidado__itens {
+  display: grid;
+  gap: 8px;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+.cuidado__itens li {
+  display: flex;
+  align-items: flex-start;
+  gap: 9px;
+  font-size: .85rem;
+  line-height: 1.5;
+  color: var(--texto-suave);
+}
+.cuidado__itens .icone {
+  width: 16px;
+  height: 16px;
+  margin-top: 4px;
+  color: var(--cor);
+  stroke-width: 2.4;
+}
+
+.cuidado__dados {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+.cuidado__dados li {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 10px 14px;
+  background: var(--cartao-alt);
+  border-radius: 10px;
+  font-size: .8rem;
+  font-weight: 600;
+  line-height: 1.35;
+  color: var(--navy);
+}
+.cuidado__dados b {
+  display: block;
+  font-size: .65rem;
+  font-weight: 600;
+  letter-spacing: .09em;
+  text-transform: uppercase;
+  color: var(--texto-suave);
+}
+.cuidado__dados .icone { width: 21px; height: 21px; color: var(--cor); }
+
+.cuidado__marca {
+  align-self: flex-start;
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  margin: 0;
+  padding: 9px 15px;
+  background: var(--navy);
+  border-radius: 999px;
+  color: #fff;
+  font-size: .78rem;
+  font-weight: 600;
+}
+.cuidado__marca .icone { width: 19px; height: 19px; }
 
 /* Responsivo --------------------------------------------------------------- */
 
@@ -641,6 +764,12 @@ main { padding-bottom: 48px; }
   .local { grid-template-columns: minmax(0, 1fr); }
   .local__numero { width: 38px; height: 38px; font-size: .95rem; }
   .local__dados, .local__selo { grid-column: 1; }
+
+  /* A foto passa para cima do texto, ocupando a largura do cartão. */
+  .cuidado__corpo { flex-direction: column; }
+  .cuidado__foto,
+  .cuidado__foto--alta { width: 100%; aspect-ratio: 16 / 9; }
+  .cuidado__corpo > div { width: 100%; }
 
   .nota { flex-direction: column; gap: 10px; }
 }

@@ -12,7 +12,7 @@ A imagem do mapa funciona como menu principal: cada um dos quatro itens é uma �
 | `1-programacao.html` | 1 · Rota do Conhecimento — Programação, grade por eixo temático |
 | `2-restaurantes.html` | 2 · Parada dos Sabores — Restaurantes em Barreirinhas |
 | `3-o-que-fazer.html` | 3 · Trilha Barreirinhas Viva — Dicas do que fazer |
-| `4-bem-viver.html` | 4 · Estação Bem-Viver — Atividades fora das palestras |
+| `4-bem-estar.html` | 4 · Espaço Bem-Estar — Atividades gratuitas de cuidado |
 | `base.css` | Paleta, cabeçalho e rodapé compartilhados |
 | `mapa.css` | Estilo específico do menu principal |
 | `paginas.css` | Estilo específico das páginas 1 a 4 |
@@ -48,7 +48,7 @@ Abrir o `index.html` direto pelo sistema de arquivos também funciona.
 | `1-programacao.html` | `1.Programacao_Horizonte_IFMA_2026.pptx` |
 | `2-restaurantes.html` | `2.Restaurantes.png` |
 | `3-o-que-fazer.html` | `3.O que fazer.png` |
-| `4-bem-viver.html` | atividades anunciadas no Mapa do Evento |
+| `4-bem-estar.html` | `4.Espaco Bem-Estar.png` |
 
 Ao receber uma versão nova de qualquer material, atualize a página correspondente e confira se o link de download no fim da página ainda aponta para o arquivo certo.
 
