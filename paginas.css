@@ -277,7 +277,7 @@ main { padding-bottom: 48px; }
 .sessoes {
   display: grid;
   gap: 12px;
-  grid-template-columns: repeat(auto-fit, minmax(215px, 1fr));
+  grid-template-columns: repeat(auto-fit, minmax(190px, 1fr));
   margin: 0;
   padding: 0;
   list-style: none;
@@ -634,8 +634,13 @@ main { padding-bottom: 48px; }
 
 /* Responsivo --------------------------------------------------------------- */
 
-/* Atividade que cobre dois eixos ocupa duas colunas, quando elas existem. */
-@media (min-width: 861px) {
+/* A partir desta largura cabem os quatro eixos na mesma linha. Fixar quatro
+   colunas, em vez de deixar o auto-fit decidir, evita que o último eixo caia
+   para a linha de baixo e mantém os eixos alinhados entre as faixas de horário,
+   como no quadro original. */
+@media (min-width: 900px) {
+  .sessoes { grid-template-columns: repeat(4, minmax(0, 1fr)); }
+  .sessoes--unica { grid-template-columns: minmax(0, 1fr); }
   .sessao--dupla { grid-column: span 2; }
 }
 
