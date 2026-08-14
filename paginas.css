@@ -362,27 +362,6 @@ main { padding-bottom: 48px; }
   border-top: 1px dashed var(--borda);
 }
 
-/* Entregas e materiais anunciados junto de uma atividade. */
-.entrega {
-  display: flex;
-  align-items: flex-start;
-  gap: 9px;
-  margin: 11px 0 0;
-  padding: 9px 13px;
-  background: var(--cartao-alt);
-  border-radius: 9px;
-  font-size: .8rem;
-  font-weight: 600;
-  line-height: 1.4;
-  color: var(--navy);
-}
-.entrega .icone {
-  width: 17px;
-  height: 17px;
-  margin-top: 2px;
-  color: var(--item-2-forte);
-}
-
 /* Intervalos: faixa simples, sem cartão. */
 .intervalo {
   display: flex;
