@@ -9,7 +9,7 @@ A imagem do mapa funciona como menu principal: cada um dos quatro itens é uma �
 | Arquivo | Função |
 | --- | --- |
 | `index.html` | Menu principal |
-| `1-programacao.html` | 1 · Rota do Conhecimento — Programação Oficial |
+| `1-programacao.html` | 1 · Rota do Conhecimento — Programação, grade por eixo temático |
 | `2-restaurantes.html` | 2 · Parada dos Sabores — Restaurantes em Barreirinhas |
 | `3-o-que-fazer.html` | 3 · Trilha Barreirinhas Viva — Dicas do que fazer |
 | `4-bem-viver.html` | 4 · Estação Bem-Viver — Atividades fora das palestras |
@@ -38,7 +38,19 @@ python -m http.server 8000
 
 Depois abra <http://localhost:8000>.
 
-Abrir o `index.html` direto pelo sistema de arquivos também funciona, mas alguns navegadores baixam o PDF em vez de exibi-lo embutido na página 1.
+Abrir o `index.html` direto pelo sistema de arquivos também funciona.
+
+## Fonte do conteúdo
+
+| Página | Material de origem |
+| --- | --- |
+| `index.html` | `0.Mapa do Evento.png` |
+| `1-programacao.html` | `1.Programacao_Horizonte_IFMA_2026.pptx` |
+| `2-restaurantes.html` | `2.Restaurantes.png` |
+| `3-o-que-fazer.html` | `3.O que fazer.png` |
+| `4-bem-viver.html` | atividades anunciadas no Mapa do Evento |
+
+Ao receber uma versão nova de qualquer material, atualize a página correspondente e confira se o link de download no fim da página ainda aponta para o arquivo certo.
 
 ## QR code
 

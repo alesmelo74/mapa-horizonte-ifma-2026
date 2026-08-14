@@ -164,7 +164,42 @@ main { padding-bottom: 48px; }
    Item 1 — Programação
    ========================================================================== */
 
-/* Legenda das trilhas. */
+/* Painel de números da programação. */
+.numeros {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+  gap: 12px;
+  margin: 28px 0 0;
+  padding: 0;
+  list-style: none;
+}
+.numeros li {
+  padding: 16px 18px;
+  background: var(--cartao);
+  border: 1px solid var(--borda);
+  border-radius: var(--raio);
+  box-shadow: var(--sombra);
+  text-align: center;
+}
+.numeros b {
+  display: block;
+  font-family: var(--fonte-titulo);
+  font-weight: 700;
+  font-size: 1.9rem;
+  line-height: 1;
+  color: var(--cor-tema, var(--azul-faixa));
+}
+.numeros span {
+  display: block;
+  margin-top: 5px;
+  font-size: .73rem;
+  font-weight: 600;
+  letter-spacing: .08em;
+  text-transform: uppercase;
+  color: var(--texto-suave);
+}
+
+/* Legenda dos eixos temáticos. */
 .trilhas {
   display: flex;
   flex-wrap: wrap;
@@ -317,6 +352,34 @@ main { padding-bottom: 48px; }
   font-family: var(--fonte-titulo);
   font-weight: 600;
   font-size: .88rem;
+  color: var(--item-2-forte);
+}
+
+/* Segunda atividade dentro da mesma célula de eixo, como no material oficial. */
+.sessao__divisor {
+  margin: 13px 0;
+  border: 0;
+  border-top: 1px dashed var(--borda);
+}
+
+/* Entregas e materiais anunciados junto de uma atividade. */
+.entrega {
+  display: flex;
+  align-items: flex-start;
+  gap: 9px;
+  margin: 11px 0 0;
+  padding: 9px 13px;
+  background: var(--cartao-alt);
+  border-radius: 9px;
+  font-size: .8rem;
+  font-weight: 600;
+  line-height: 1.4;
+  color: var(--navy);
+}
+.entrega .icone {
+  width: 17px;
+  height: 17px;
+  margin-top: 2px;
   color: var(--item-2-forte);
 }
 
@@ -554,6 +617,12 @@ main { padding-bottom: 48px; }
 }
 
 /* Responsivo --------------------------------------------------------------- */
+
+/* Atividade que cobre dois eixos ocupa duas colunas, quando elas existem. */
+@media (min-width: 861px) {
+  .sessao--dupla { grid-column: span 2; }
+}
+
 @media (max-width: 620px) {
   .barra__titulo { display: none; }
 
