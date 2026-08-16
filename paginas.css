@@ -719,6 +719,14 @@ main { padding-bottom: 48px; }
 }
 .cuidado__dados .icone { width: 21px; height: 21px; color: var(--cor); }
 
+/* Linha de selos e ações do cartão. */
+.cuidado__acoes {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 10px;
+}
+
 .cuidado__marca {
   align-self: flex-start;
   display: inline-flex;
@@ -733,6 +741,25 @@ main { padding-bottom: 48px; }
   font-weight: 600;
 }
 .cuidado__marca .icone { width: 19px; height: 19px; }
+
+/* Link para o vídeo do projeto. */
+.cuidado__video {
+  display: inline-flex;
+  align-items: center;
+  gap: 9px;
+  padding: 9px 16px;
+  background: var(--azul-faixa);
+  border-radius: 999px;
+  color: #fff;
+  font-size: .8rem;
+  font-weight: 600;
+  text-decoration: none;
+  transition: background-color .16s ease;
+}
+.cuidado__video:hover { background: #0a5cc4; }
+.cuidado__video:focus-visible { outline: 3px solid var(--azul-claro); outline-offset: 2px; }
+.cuidado__video .icone { width: 18px; height: 18px; }
+.cuidado__video small { font-weight: 400; opacity: .85; }
 
 /* Responsivo --------------------------------------------------------------- */
 
